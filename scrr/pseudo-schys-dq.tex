@@ -1,0 +1,52 @@
+\begin{algorithm}[t]
+\caption{Self-clocked Hybrid Scheduler Dequeue}
+\label{alg:hybrid-deq}
+\begin{algorithmic}
+\Require $NP \ge 0$
+\Comment{Packet count}
+\Require $nq \ge 0$
+\Comment{Active sub-queue count}
+\Function{Dequeue}{}
+\Comment{Packet Retrieval}
+\If{$NP == 0$}
+\Return NULL
+\EndIf
+    \If{$sched\_mode$ is $(SCRR | PRE\_STFQ)$}
+        \State $cur\_queue \gets$ $linked\_ list.head$
+        \If{$!cur\_queue$ $\&$  $sched\_mode$ is $PRE\_STFQ$}
+            \State $sched\_mode \gets STFQ$
+        \EndIf  
+    \Else
+        \State $cur\_queue \gets$ $sorted\_tree.first$
+        \If{$!cur\_queue$ $\&$  $sched\_mode$ is $PRE\_SCRR$}
+            \State $sched\_mode \gets SCRR$
+            \State Start a SCRR scheduling round
+        \EndIf  
+    \EndIf
+
+\State $pkt \gets cur\_queue.dequeue()$
+\If{$pkt$ is null}
+    \State Remove sub-queue from schedule
+    \If{$sched\_mode$ is $SCRR$ $\&$  $nq \leq T_{LOW}$}
+        \State $sched\_mode \gets PRE\_STFQ$      
+    \EndIf
+    \State Try updating the global clock
+    \State Retry $Dequeue()$
+\EndIf
+
+\State Update $virtual\_dequeue$ time
+\Comment{Sub-queue Accounting}
+\If{$cur\_queue$ is not empty}
+    \If{$sched\_mode$ is $(PRE\_SCRR|SCRR)$}
+        \State Reinsert $cur\_queue$ into the $linked\_list$ 
+        \State Try updating the global clock
+    \Else
+        \State Reinsert $cur\_queue$ into the $sorted\_tree$ 
+        \State Update the global clock
+    \EndIf
+\EndIf
+
+\Return $pkt$
+\EndFunction
+\end{algorithmic}
+\end{algorithm}

@@ -1,0 +1,32 @@
+\begin{figure*}[th!]
+  \centering
+  \begin{subfigure}[t]{.30\linewidth}
+    \centering
+    \includegraphics[width=0.95\linewidth]{figs/burst_cn_6t1x10_mss_1000_kp_bw_drr_basic_fq_drr.pdf}
+    \caption{\small{\textit{CPU vs TCP throughput, 70 flows}}}
+    \label{fig:cpu-quanta-tcp-lat-10f}
+  \end{subfigure}
+  \begin{subfigure}[t]{.30\linewidth}
+    \centering
+    \includegraphics[width=0.95\linewidth]{figs/burst_cn_6t1x100_kp_bw_drr_basic_fq_drr_scrr-neia.pdf}
+    \caption{\small{\textit{CPU vs TCP throughput, 700 flows}}}
+    \label{fig:cpu-quanta-tcp-lat-100f}
+  \end{subfigure}
+  \begin{subfigure}[t]{.30\linewidth}
+    \centering
+    \includegraphics[width=0.95\linewidth]{figs/burst_cn_6u1x100_Cb_2G_kp_bw_drr_basic_fq_drr_scrr-neia.pdf}
+    \caption{\small{\textit{CPU vs UDP throughput, 700 flows}}}
+    \label{fig:cpu-quanta-udp-lat-100f}
+  \end{subfigure}
+  \\
+  \begin{subfigure}[t]{\linewidth}
+    \centering
+    \includegraphics[width=0.95\linewidth]{figs/burst_cn_6t1x100_flame_drr_basic.pdf}
+    \caption{\small{\textit{FlameGraph, TCP, Quantum 500~B}}}
+    \label{fig:cpu-quanta-tcp-flamegraph}
+  \end{subfigure}
+  \vspace{-3mm}
+  \caption{\small{Impact DRR quantum on CPU overhead and traffic throughput.}}
+  \vspace{-0.4cm}
+  \label{fig:cpu-drr-quantum}
+\end{figure*}

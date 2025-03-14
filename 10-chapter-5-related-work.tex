@@ -1,0 +1,88 @@
+\chapter{Related Work}
+\label{chap:related-work}
+
+\section{Bursts And Traffic Characteristics}
+
+\textbf{Datacenter traffic is bursty} \cite{bullet, wild, social, high-resolution,incast,milisampler}.
+Microbursts have a large set of root causes such as bursty traffic introduced by datacenter applications \cite{measuring, gfs, panfs}, transport protocol operations \cite{ipbursts, why}, and operating system optimizations \cite{snap, bullet}, that are hard to detect and manage \cite{burstradar}. 
+Some recent in-network designs augment the programmable data planes with fast stateful processing to detect \bursts. Conquest \cite{conquest} introduces a queue monitoring technique to detect heavy-hitter flows in the presence of \bursts. Marple \cite{marple} presents a data store and a query language that can track and detect fine-grain traffic characteristics (\eg inter-packet gap patterns for a flow). Mantis \cite{mantis} enables a datapath between the switch dataplane, to gather the traffic state, and switch control-plane to implement quick reactive decisions. 
+Although these monitoring tools are invaluable for network management, in \textit{Vertigo} we find that a simple host-assisted technique that tags packets with their flow size information is surprisingly effective for managing \bursts. Furthermore, in \textit{Valinor} we identify how the interaction between host networking components makes it challenging to argue about the sources of bursts.
+
+\textbf{Traffic self-similarity.}
+A large group of studies rely on quantifying bursts by using the notion of self-similarity in the time series \cite{selfsim,filesize,norros1994storage,adas1995resource,park1997effect,self_similar_overview,vbr} but overlook the role of host networking on shaping bursts. \textit{Valinor} leverages the theoretical frameworks developed in these works to uncover the impact of host networking on bursts.
+\\
+\textbf{Detecting bursts.}
+A growing number of proposals try to identify \emph{what flows} are bursty \cite{conquest,trumpet,flowradar,snappy} but they cannot identify \emph{why} those flows are bursty. Crucially, they cannot identify the elements on the traffic path that contribute to or blunt traffic burstiness. Frameworks such as BurstRadar \cite{radar} and SynDB \cite{syndb} rely on buffer congestion or external triggers to capture packet arrivals which prevents them from capturing long-range dependency patterns in host egress traffic.
+%\textit{Valinor's use of timestamping prongs inside the host stack and in the network provides a holistic view of host traffic at different time scales.}
+
+Similar to Valinor, a few proposals study the causes of bursts.
+Some papers pinpoint transport protocol internals such as segmentation, slow start, bulk acknowledgments, and fast re-transmit as potential sources of bursts at the source level \cite{ipbursts, notes,burstiness}. 
+Another category of works study the impact of offloading techniques like segmentation offload on microbursts \cite{bullet,high-resolution}.
+%Subsequent studies follow the trend between networking equipment speeds and processor/memory resource bottlenecks to identify offloading techniques like segmentation offload as other sources of microbursts \cite{bullet,high-resolution}.
+Specifically, \cite{bullet} investigates the impact of application behavior, operating system syscalls,  and NIC offloading features on both sender and receiver hosts on burstiness and further show that burstiness imposed by TCP segmentation offload can marginally be controlled by configuring the kernel's maximum GSO size. 
+%However, these studies fall short in unveiling the effects of lower-level offloading mechanisms on software scheduling and pacing.
+Compared to these studies, \textit{Valinor} has a broader scope; it studies the impact of various host elements (not just transport protocols), the effects of low-level offloading mechanisms on software scheduling and pacing, and bursts at various timescales (not just microsecond-scale).
+% However, the effect of lower-level offloading mechanisms on software scheduling and pacing has not been studied.
+% RSC \cite{coalescing} leverages the traffic burstiness \sepehr{in the receiver-host} to implement batching techniques on the host stacks in order to improve CPU utilization.
+
+
+\section{Controlling Bursts}
+
+
+\textbf{Preventing \bursts \ at the edge.}
+Many recent proposals try to \emph{prevent the formation of \bursts\ at end-hosts} \cite{jitter, pHost, homa, dctcp, swift, tlt}. Imposing random delays to user requests to mitigate the degree of synchronization between flows \cite{jitter} is among the first deployed remedies. This technique improves the tail of Flow Completion Time (FCT) but increases the median FCT \cite{dctcp}.
+%
+Receiver-driven transports are another emerging solution to avoid packet loss by \textit{performing bandwidth allocation using credit packets} \cite{homa, expresspass, aeolus, pHost}. 
+%While performing well for congestion events that occur at the network edge, solutions like Homa \cite{Homa} fail to consider congestion at the core of the network or pose heavy implementation challenges \cite{NDP}. Additionally, 
+% Other techniques like Aeolus \cite{aeolus} try to eliminate the extra 1-RTT requirement for credit-based transports that add to the overall completion times of small flows.
+Another group of works try to \textit{prevent the sender hosts from transmitting large bursts of traffic that the network cannot absorb} \cite{dctcp, hpcc, swift}. Using Explicit Congestion Notification (ECN), DCTCP tries to avoid \bursts' consequences by keeping headroom inside switch buffers to absorb the bursts \cite{dctcp}. Swift \cite{swift} and HPCC \cite{hpcc} improve the precision and speed of prior congestion control algorithms such as DCTCP via using advanced telemetry techniques. Swift uses fine-grained timestamps at the edge to accurately measure packets' RTTs as a congestion notification and paces the packets accordingly to prevent congestion. HPCC \cite{hpcc}, an RDMA congestion control algorithm, relies on in-network telemetry information carried by in-flight packets to adjust its transmission rate and avoid packet loss. 
+These techniques require a few Round-Trip Times (RTTs) to converge, which is longer than the lifetime of most \burst\ events \cite{high-resolution}.
+Although significantly faster than TCP and DCTCP, we show that Swift can benefit from running \textit{Vertigo} in the networking layer, \eg under 55\% load, Swift+\textit{Vertigo}'s mean QCT is 96\% shorter than Swift+ECMP (\S\ref{sec:eval}).
+
+\textbf{Taming \bursts \ in the network core.}
+Datacenter load balancers \cite{conga, presto, drill, letflow} strive to \emph{distribute \bursts\ at the core} of the network by evenly balancing the traffic among multiple paths. These techniques fundamentally cannot manage the \bursts \ at the last hop (switch-to-receiver host) where the majority of \bursts \ transpire \cite{jupiter, high-resolution, hpcc}. Unlike others, FastPass \cite{fastpass} uses a centralized arbiter to schedule and route the traffic. While FastPass can prevent \bursts, centralized designs pose scalability challenges. 
+%Additionally, many of these solutions suffer from packet re-ordering \cite{letflow, presto} and leverage ordering shim layers to address it by making assumptions regarding the underlying transport protocols.
+%
+% Some datacenter transports rely on in-network packet scheduling \cite{pfabric}, explicit feedback from the fabric \cite{hpcc, NDP}, or dynamic buffer sizing \cite{tlt}. TLT \cite{tlt} identifies \textit{important} in-transit packets and tries to selectively prevent their drop in a congested buffer by applying color-aware thresholding features in commodity fabric. Applying packet-coloring, however, requires complex buffer sizing arrangements and treats all active flows similarly, while persistent flows are less susceptible to the effects of packet loss due to their large completion times \cite{pfabric}.
+%
+Deflection techniques detour excess packets to neighboring switches \cite{dibs, pabo}. Naive deflection, however, creates multiple challenges in datacenters. Notably, it results in excessive packet re-ordering, introduces head-of-the-line blocking in switch buffers, and breaks under high load (\S\ref{sec:deflection}).
+
+Buffer management, \eg via packet scheduling (ordering packets within a queue) and selective dropping (in case of buffer overflow), is a large and mature area of research \cite{pdq, pfabric, tlt, NDP, shreedhar1995efficient, blake1998architecture, parekh1993generalized, demers1989analysis, clark1992supporting}. NDP, for example, drops the packet payload \cite{NDP} and TLT prevents packet drops that are only recoverable by timeouts
+% such as the last packet of the flow 
+\cite{tlt}. Similarly, \cite{floodgate} performs rate-limiting at the switch in order to control bursts.We find that a simple buffer management technique based on SRPT and the remaining flow size is efficient across all the tested workloads. We leave a detailed exploration of optimizing \textit{Vertigo} with other buffer management techniques to future work.
+
+Some L2/L3 techniques rely on the internals of the congestion control algorithm to implement networking services \cite{dibs, juggler, presto}. DIBS, for instance, disables the fast retransmission mechanism of DCTCP \cite{dibs}, and Presto and Juggler use TCP's sequence numbers to resequence the reordered packets \cite{presto, juggler}.
+This poses a hurdle in deploying such techniques as the set of congestion control algorithms in today's datacenters is large and rapidly evolves to meet key operational needs \cite{swift,snap, hpcc}. Plus, even in one datacenter, many congestion control algorithms can coexist, \eg latency-sensitive and WAN traffic deploy different congestion control algorithms, customers configure their cloud VMs with their preferred congestion control algorithms, and UDP traffic relies on the application-level rate control logic \cite{swift}. Requiring changes to the congestion control logic and relying on its internal mechanisms complicate deployment. Thus, Vertigo strives to provide a burst-tolerant forwarding service that is agnostic to the internals of the congestion control algorithm. This allows these layers to evolve independently.
+%
+In \textit{Vertigo}, we build on some of the powerful ideas from the related work, \eg ``power of two choices'' forwarding \cite{drill}, deflection routing \cite{dibs}, and ordering layers \cite{juggler}, and address their limitations and shortcomings. 
+\\
+\textbf{Integration of Deflection with network monitoring.} The continuous growth in the scale of datacenters and the rate at which they operate, in addition to higher performance expectations and more strict service-level objectives (SLOs), leave minimal time slack for resolving network anomalies \cite{netseer, intsight}. As finding the root causes of network anomalies requires considerable time, the proposals on network telemetry \cite{int, netseer, pint, intsight} advocate fast, accurate, and scalable network monitoring. Concretely, to quickly pinpoint the cause of a network anomaly and SLO violation, these proposals seek fine-grained measurement of performance-critical characteristics of the network, such as link utilization, queue occupancy, path conformance, and packet drop. Vertigo's functionalities might interfere with some of these telemetry operations. For instance, tracking the number of packet drops gives the operators an insight into the degree of temporal congestion events inside the network while, with packet deflection, packet drops only indicate large-scale long-lasting congestion. However, by tracking other events, such as link utilization and the number of deflections per packet, a telemetry system can detect anomalies such as temporal congestion. We leave the design of a telemetry system that supports packet deflection to future work.
+
+\section{Packet Scheduling}
+
+Starting from Nagle's \cite{nagle} practical fair queuing, packet scheduling has been the focus of numerous works.
+\\
+% \textbf{Classical fair queuing.}
+\textbf{The Origin of Self-Clocking.}
+Packet-based Generalized Processor Sharing (\textit{PGPS}) scheduling \cite{gps} studies the latency and burstiness bounds of the scheduler with virtual clocking together with a leaky bucket admission control scheme. Self-Clocked Fair Queuing (\textit{SCFQ}) \cite{scfq} is the original scheduler that tags packets with a virtual clock, indicating their \textit{virtual finish time} (expected end of transmission by the scheduler).
+To determine the eligible queues for transmission, the scheduler maintains them in a sorted list based on the virtual times of their head packet.
+Upon enqueue, each packet's virtual time is calculated as the current virtual time of its queue, augmented by the packet's length, proportional to the weight assigned to its queue. After sending out a packet, the scheduler updates its virtual time to that of the transmitted packet.
+
+Start-Time Fair Queuing (\textit{STFQ}) \cite{stfq} introduces a similar fair queuing paradigm to \textit{SCFQ} using virtual clocking, but tags the packets with their virtual start time (expected start of transmission by the scheduler). This virtual time equals the finish time of the tail packet in the queue if it is backlogged, or the current global virtual time of the scheduler if the queue was idle. The global virtual time is also maintained as the start time of the last transmitted packet.
+\textit{STFQ} achieves similar fairness bounds as \textit{SCFQ} while improving \textit{SCFQ}'s average scheduling delays by 53\% \cite{stfq}. Nevertheless, the non-constant O($log(n)$) computational complexity of \textit{STFQ} makes its deployment challenging in the current scale of networks. Several works explore \textit{STFQ}'s practical implementation \cite{flow-aware,ibis,mqfq} or have attempted to approximate it in programmable hardware \cite{aifo,numfabric,sppifo}. However, scalability remains a challenge due to the existing limitations in underlying architectures \cite{pifo,mqfq}, and we show that existing approximations fail to provide flow fairness and desirable sparse flow performance.
+With the potentials of self-clocking manifested in this work, it is also possible to combine self-clocking with classical fair queueing to achieve better flow-level burstiness. We leave this research direction for future work.
+Finally, \textit{DRR} variants \cite{drr,strr,aliquem} offer flow-level fairness, but as our study shows, using a user-specified quantum as their configuration knob makes it difficult to argue about their performance trade-offs.
+\\
+\textbf{Programmable and priority packet scheduling.}
+\cite{calendar} Implements a programmable queuing abstraction in PISA architecture that can be used to implement complex scheduling and queue management paradigms such as \textit{Weighted Fair Queuing}. Similarly, \textit{PIFO} \cite{pifo} introduces programmable abstractions that realize packet-level prioritization and ordering at a limited scale in hardware. As we investigate in \S\ref{sec:scrr-eval-pifo}, existing implementations of programmable packet scheduling suffer from under-utilization and heavy packet re-ordering.
+\textit{AFQ} \cite{afq} also takes a similar approach in trying to approximate fair queuing paradigms in programmable hardware. \textit{Karuna} \cite{karuna} presents a packet scheduler tailored for deadline flows.
+Nevertheless, such schedulers require sophisticated prioritization input that might not be available outside data center networking use cases. 
+\textit{SCRR} focuses on standard TCP/IP networks while leaving the doors open for future extensions.
+% \\
+% \textbf{Other approaches toward tenant segregation.}
+% Various works have explored the isolation properties of host components such as CPU scheduling and network transport in high-performance network stacks \cite{}. Shenango \cite{shenango} designs a kernel-bypass runtime that can co-locate latency-sensitive and background tasks with minimal context-switching penalties. Caladan \cite{caladan} improves on Shenango by identifying and addressing the sources of interference between latency-sensitive workloads. Carousel \cite{carousel} introduces a traffic shaping design that leverages time wheels in the software for performing fine-grained pacing. Custom transport protocols such as Swift \cite{swift} take into account fine-grained delays in packet round-trip times and pacing to control bursty flows. All these works are orthogonal to the design of the SCRR scheduler since they can all be combined to further shape the network traffic in datacenters.
+% \todo{Custom transport protocols that take care of fairness ...}
+% \\
+% \todo{\textbf{Other citable works}}
+
+% \todo{Karuna (SIGCOMM 16), Confucius (Arxiv 23)}

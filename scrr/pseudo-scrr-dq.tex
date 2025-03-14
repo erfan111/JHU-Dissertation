@@ -1,0 +1,59 @@
+\begin{algorithm}[b!]
+\caption{Self-clocked Round-robin Dequeue}
+\label{alg:scrr-deq}
+\begin{algorithmic}
+\Require $NP \ge 0$
+\Comment{Packet count}
+\Function{Dequeue}{}
+\Comment{Packet Retrieval}
+\If{$NP == 0$}
+\Return NULL
+\EndIf
+
+\Repeat
+\State $rr\_queue \gets new\_queues.head()$
+\If{$rr\_queue$ is null}
+\State $rr\_queue \gets old\_queues.head()$
+\EndIf
+\State $pkt \gets rr\_queue.dequeue()$
+\If{$pkt$ is null}
+\If{$rounds  \leq 0$}
+\State $virtual\_clock \gets virtual\_dequeue$
+\State $rounds \gets all\_queues.length$
+\EndIf
+\State $rounds \gets rounds - 1$
+\State $rr\_queue \gets rr\_queue.next$
+\EndIf
+\Until{$pkt$ is not null}
+\State $NP \gets NP - 1$
+
+\Comment{Global Clock Advance}
+\If{$N == 0$}
+\State $virtual\_dequeue \gets pkt.virtual + pkt.length$
+\State $virtual\_clock \gets virtual\_dequeue$
+\ElsIf{$pkt.virtual > virtual\_dequeue$}
+\State $virtual\_dequeue \gets pkt.virtual$
+\EndIf
+
+\Comment{Sub-Queue Round Robin}
+\State $virtual\_next \gets pkt.virtual\_time + pkt.length$
+\If{$virtual\_next > virtual\_clock$ or $cur\_queue$ is empty}
+\If{$rounds  \leq 0$}
+\State $virtual\_clock \gets virtual\_dequeue$
+\State $rounds \gets all\_queues.length$
+\EndIf
+\State $rounds \gets rounds - 1$
+\State $rr\_queue \gets rr\_queue.next$
+\State $old\_queues.tail \gets cur\_queue$
+\EndIf
+
+\Return $pkt$
+%     \State $X \gets X \times X$
+%     \State $N \gets \frac{N}{2}$  \Comment{This is a comment}
+% \ElsIf{$N$ is odd}
+%     \State $y \gets y \times X$
+%     \State $N \gets N - 1$
+% \EndIf
+\EndFunction
+\end{algorithmic}
+\end{algorithm}

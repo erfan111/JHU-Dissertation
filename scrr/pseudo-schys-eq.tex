@@ -1,0 +1,29 @@
+\begin{algorithm}[t]
+\caption{Self-clocked Hybrid Scheduler Enqueue}
+\label{alg:hybrid-enq}
+\begin{algorithmic}
+\Require $NP \ge 0$
+\Comment{Packet count}
+\Require $nq \ge 0$
+\Comment{Active sub-queue count}
+\Function{Enqueue}{pkt}
+
+\Call{$cur\_queue \gets classify$}{pkt}
+\State $pkt.virt\_tag \gets max(global\_clock, cur\_queue.clock)$
+\State $cur\_queue.clock \gets pkt.virt\_tag + pkt.length$
+\If{$cur\_queue$ is inactive}
+    \If{$sched\_mode$ is $STFQ$ $\&$ $nq \ge T_{HIGH}$ }
+        \State $sched\_mode \gets PRE\_SCRR$       
+    \EndIf
+    \If{$sched\_mode$ is $(SCRR | PRE\_SCRR)$}
+        \State Insert $cur\_queue$ into the $linked\_list$
+        \State $rounds \gets rounds + 1$
+    \Else
+        \State Insert $cur\_queue$ into the $sorted\_tree$
+    \EndIf
+\EndIf
+
+\Call{$cur\_queue.enqueue$}{pkt}
+\EndFunction
+\end{algorithmic}
+\end{algorithm}

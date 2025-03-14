@@ -1,71 +1,2408 @@
-%%%% this sample bibliography has been taken from Overleaf
 
-@article{einstein,
-  author =       "Albert Einstein",
-  title =        "{Zur Elektrodynamik bewegter K{\"o}rper}. ({German})
-                 [{On} the electrodynamics of moving bodies]",
-  journal =      "Annalen der Physik",
-  volume =       "322",
-  number =       "10",
-  pages =        "891--921",
-  year =         "1905",
-  DOI =          "http://dx.doi.org/10.1002/andp.19053221004",
-  keywords =     "physics"
+% Journals
+
+% First the Full Name is given, then the abbreviation used in the AMS Math
+% Reviews, with an indication if it could not be found there.
+% Note the 2nd overwrites the 1st, so swap them if you want the full name.
+
+ %{AMS}
+ @String{AMSTrans = "American Mathematical Society Translations" }
+ @String{AMSTrans = "Amer. Math. Soc. Transl." }
+ @String{BullAMS = "Bulletin of the American Mathematical Society" }
+ @String{BullAMS = "Bull. Amer. Math. Soc." }
+ @String{ProcAMS = "Proceedings of the American Mathematical Society" }
+ @String{ProcAMS = "Proc. Amer. Math. Soc." }
+ @String{TransAMS = "Transactions of the American Mathematical Society" }
+ @String{TransAMS = "Trans. Amer. Math. Soc." }
+
+ %ACM
+ @String{CACM = "Communications of the {ACM}" }
+ @String{CACM = "Commun. {ACM}" }
+ @String{CompServ = "Comput. Surveys" }
+ @String{JACM = "J. ACM" }
+ @String{ACMMathSoft = "{ACM} Transactions on Mathematical Software" }
+ @String{ACMMathSoft = "{ACM} Trans. Math. Software" }
+ @String{SIGNUM = "{ACM} {SIGNUM} Newsletter" }
+ @String{SIGNUM = "{ACM} {SIGNUM} Newslett." }
+
+ @String{AmerSocio = "American Journal of Sociology" }
+ @String{AmerStatAssoc = "Journal of the American Statistical Association" }
+ @String{AmerStatAssoc = "J. Amer. Statist. Assoc." }
+ @String{ApplMathComp = "Applied Mathematics and Computation" }
+ @String{ApplMathComp = "Appl. Math. Comput." }
+ @String{AmerMathMonthly = "American Mathematical Monthly" }
+ @String{AmerMathMonthly = "Amer. Math. Monthly" }
+ @String{BIT = "{BIT}" }
+ @String{BritStatPsych = "British Journal of Mathematical and Statistical
+          Psychology" }
+ @String{BritStatPsych = "Brit. J. Math. Statist. Psych." }
+ @String{CanMathBull = "Canadian Mathematical Bulletin" }
+ @String{CanMathBull = "Canad. Math. Bull." }
+ @String{CompApplMath = "Journal of Computational and Applied Mathematics" }
+ @String{CompApplMath = "J. Comput. Appl. Math." }
+ @String{CompPhys = "Journal of Computational Physics" }
+ @String{CompPhys = "J. Comput. Phys." }
+ @String{CompStruct = "Computers and Structures" }
+ @String{CompStruct = "Comput. \& Structures" }
+ @String{CompJour = "The Computer Journal" }
+ @String{CompJour = "Comput. J." }
+ @String{CompSysSci = "Journal of Computer and System Sciences" }
+ @String{CompSysSci = "J. Comput. System Sci." }
+ @String{Computing = "Computing" }
+ @String{ContempMath = "Contemporary Mathematics" }
+ @String{ContempMath = "Contemp. Math." }
+ @String{Crelle = "Crelle's Journal" }
+ @String{GiornaleMath = "Giornale di Mathematiche" }
+ @String{GiornaleMath = "Giorn. Mat." } % didn't find in AMS MR., ibid.
+
+ %IEEE
+ @String{Computer = "{IEEE} Computer" }
+ @String{IEEETransComp = "{IEEE} Transactions on Computers" }
+ @String{IEEETransComp = "{IEEE} Trans. Comput." }
+ @String{IEEETransAC = "{IEEE} Transactions on Automatic Control" }
+ @String{IEEETransAC = "{IEEE} Trans. Automat. Control" }
+ @String{IEEESpec = "{IEEE} Spectrum" } % didn't find in AMS MR
+ @String{ProcIEEE = "Proceedings of the {IEEE}" }
+ @String{ProcIEEE = "Proc. {IEEE}" } % didn't find in AMS MR
+ @String{IEEETransAeroElec = "{IEEE} Transactions on Aerospace and Electronic
+     Systems" }
+ @String{IEEETransAeroElec = "{IEEE} Trans. Aerospace Electron. Systems" }
+
+ @String{IMANumerAna = "{IMA} Journal of Numerical Analysis" }
+ @String{IMANumerAna = "{IMA} J. Numer. Anal." }
+ @String{InfProcLet = "Information Processing Letters" }
+ @String{InfProcLet = "Inform. Process. Lett." }
+ @String{InstMathApp = "Journal of the Institute of Mathematics and
+     its Applications" }
+ @String{InstMathApp = "J. Inst. Math. Appl." }
+ @String{IntControl = "International Journal of Control" }
+ @String{IntControl = "Internat. J. Control" }
+ @String{IntNumerEng = "International Journal for Numerical Methods in
+     Engineering" }
+ @String{IntNumerEng = "Internat. J. Numer. Methods Engrg." }
+ @String{IntSuper = "International Journal of Supercomputing Applications" }
+ @String{IntSuper = "Internat. J. Supercomputing Applic." } % didn't find
+%% in AMS MR
+ @String{Kibernetika = "Kibernetika" }
+ @String{JResNatBurStand = "Journal of Research of the National Bureau
+     of Standards" }
+ @String{JResNatBurStand = "J. Res. Nat. Bur. Standards" }
+ @String{LinAlgApp = "Linear Algebra and its Applications" }
+ @String{LinAlgApp = "Linear Algebra Appl." }
+ @String{MathAnaAppl = "Journal of Mathematical Analysis and Applications" }
+ @String{MathAnaAppl = "J. Math. Anal. Appl." }
+ @String{MathAnnalen = "Mathematische Annalen" }
+ @String{MathAnnalen = "Math. Ann." }
+ @String{MathPhys = "Journal of Mathematical Physics" }
+ @String{MathPhys = "J. Math. Phys." }
+ @String{MathComp = "Mathematics of Computation" }
+ @String{MathComp = "Math. Comp." }
+ @String{MathScand = "Mathematica Scandinavica" }
+ @String{MathScand = "Math. Scand." }
+ @String{TablesAidsComp = "Mathematical Tables and Other Aids to Computation" }
+ @String{TablesAidsComp = "Math. Tables Aids Comput." }
+ @String{NumerMath = "Numerische Mathematik" }
+ @String{NumerMath = "Numer. Math." }
+ @String{PacificMath = "Pacific Journal of Mathematics" }
+ @String{PacificMath = "Pacific J. Math." }
+ @String{ParDistComp = "Journal of Parallel and Distributed Computing" }
+ @String{ParDistComp = "J. Parallel and Distrib. Comput." } % didn't find
+%% in AMS MR
+ @String{ParComputing = "Parallel Computing" }
+ @String{ParComputing = "Parallel Comput." }
+ @String{PhilMag = "Philosophical Magazine" }
+ @String{PhilMag = "Philos. Mag." }
+ @String{ProcNAS = "Proceedings of the National Academy of Sciences
+                    of the USA" }
+ @String{ProcNAS = "Proc. Nat. Acad. Sci. U. S. A." }
+ @String{Psychometrika = "Psychometrika" }
+ @String{QuartMath = "Quarterly Journal of Mathematics, Oxford, Series (2)" }
+ @String{QuartMath = "Quart. J. Math. Oxford Ser. (2)" }
+ @String{QuartApplMath = "Quarterly of Applied Mathematics" }
+ @String{QuartApplMath = "Quart. Appl. Math." }
+ @String{RevueInstStat = "Review of the International Statisical Institute" }
+ @String{RevueInstStat = "Rev. Inst. Internat. Statist." }
+
+ %SIAM
+ @String{JSIAM = "Journal of the Society for Industrial and Applied
+     Mathematics" }
+ @String{JSIAM = "J. Soc. Indust. Appl. Math." }
+ @String{JSIAMB = "Journal of the Society for Industrial and Applied
+     Mathematics, Series B, Numerical Analysis" }
+ @String{JSIAMB = "J. Soc. Indust. Appl. Math. Ser. B Numer. Anal." }
+ @String{SIAMAlgMeth = "{SIAM} Journal on Algebraic and Discrete Methods" }
+ @String{SIAMAlgMeth = "{SIAM} J. Algebraic Discrete Methods" }
+ @String{SIAMAppMath = "{SIAM} Journal on Applied Mathematics" }
+ @String{SIAMAppMath = "{SIAM} J. Appl. Math." }
+ @String{SIAMComp = "{SIAM} Journal on Computing" }
+ @String{SIAMComp = "{SIAM} J. Comput." }
+ @String{SIAMMatrix = "{SIAM} Journal on Matrix Analysis and Applications" }
+ @String{SIAMMatrix = "{SIAM} J. Matrix Anal. Appl." }
+ @String{SIAMNumAnal = "{SIAM} Journal on Numerical Analysis" }
+ @String{SIAMNumAnal = "{SIAM} J. Numer. Anal." }
+ @String{SIAMReview = "{SIAM} Review" }
+ @String{SIAMReview = "{SIAM} Rev." }
+ @String{SIAMSciStat = "{SIAM} Journal on Scientific and Statistical
+     Computing" }
+ @String{SIAMSciStat = "{SIAM} J. Sci. Statist. Comput." }
+
+ @String{SoftPracExp = "Software Practice and Experience" }
+ @String{SoftPracExp = "Software Prac. Experience" } % didn't find in AMS MR
+ @String{StatScience = "Statistical Science" }
+ @String{StatScience = "Statist. Sci." }
+ @String{Techno = "Technometrics" }
+ @String{USSRCompMathPhys = "{USSR} Computational Mathematics and Mathematical
+     Physics" }
+ @String{USSRCompMathPhys = "{U. S. S. R.} Comput. Math. and Math. Phys." }
+ @String{VLSICompSys = "Journal of {VLSI} and Computer Systems" }
+ @String{VLSICompSys = "J. {VLSI} Comput. Syst." }
+ @String{ZAngewMathMech = "Zeitschrift fur Angewandte Mathematik und
+     Mechanik" }
+ @String{ZAngewMathMech = "Z. Angew. Math. Mech." }
+ @String{ZAngewMathPhys = "Zeitschrift fur Angewandte Mathematik und Physik" }
+ @String{ZAngewMathPhys = "Z. Angew. Math. Phys." }
+
+% Publishers % ================================================= |
+
+ @String{Academic = "Academic Press" }
+ @String{ACMPress = "{ACM} Press" }
+ @String{AdamHilger = "Adam Hilger" }
+ @String{AddisonWesley = "Addison-Wesley" }
+ @String{AllynBacon = "Allyn and Bacon" }
+ @String{AMS = "American Mathematical Society" }
+ @String{Birkhauser = "Birkha{\"u}ser" }
+ @String{CambridgePress = "Cambridge University Press" }
+ @String{Chelsea = "Chelsea" }
+ @String{ClaredonPress = "Claredon Press" }
+ @String{DoverPub = "Dover Publications" }
+ @String{Eyolles = "Eyolles" }
+ @String{HoltRinehartWinston = "Holt, Rinehart and Winston" }
+ @String{Interscience = "Interscience" }
+ @String{JohnsHopkinsPress = "The Johns Hopkins University Press" }
+ @String{JohnWileySons = "John Wiley and Sons" }
+ @String{Macmillan = "Macmillan" }
+ @String{MathWorks = "The Math Works Inc." }
+ @String{McGrawHill = "McGraw-Hill" }
+ @String{NatBurStd = "National Bureau of Standards" }
+ @String{NorthHolland = "North-Holland" }
+ @String{OxfordPress = "Oxford University Press" }  %address Oxford or London?
+ @String{PergamonPress = "Pergamon Press" }
+ @String{PlenumPress = "Plenum Press" }
+ @String{PrenticeHall = "Prentice-Hall" }
+ @String{SIAMPub = "{SIAM} Publications" }
+ @String{Springer = "Springer-Verlag" }
+ @String{TexasPress = "University of Texas Press" }
+ @String{VanNostrand = "Van Nostrand" }
+ @String{WHFreeman = "W. H. Freeman and Co." }
+
+%Entries
+@MANUAL{tofino,
+  title = "{Open Tofino. \url{https://github.com/barefootnetworks/Open-Tofino}}",
+  year = 2022
 }
 
-@book{dirac,
-  title={The Principles of Quantum Mechanics},
-  author={Paul Adrien Maurice Dirac},
-  isbn={9780198520115},
-  series={International series of monographs on physics},
-  year={1981},
-  publisher={Clarendon Press},
-  keywords = {physics}
+@MISC {redis,
+    title= "Redis: an open source, in-memory data structure store.",
+    howpublished = "\url{https://redis.io}",
+    year = 2022,
 }
 
-@book{latexcompanion,
-    author    = "Michel Goossens and Frank Mittelbach and Alexander Samarin",
-    title     = "The \LaTeX\ Companion",
-    year      = "1993",
-    publisher = "Addison-Wesley",
-    address   = "Reading, Massachusetts",
-    keywords  = "latex"
+@MISC {ovs,
+    title= "Open vSwitch.",
+    howpublished = "\url{http://openvswitch.org/}",
+    year = 2022,
 }
+
+@MISC{mutilate,
+  title       = "{Mutilate++: high-performance network load generator}",
+  author      = "Sharafzadeh, Erfan",
+  institution = "Github.com",
+  year = 2022,
+}
+
+
+@ARTICLE{cloud,
+  title  = "{Cloud Computing, Server Utilization, \& the Environment}",
+  author = "Barr, Jeff",
+  month  =  jun,
+  year   =  2015,
+  howpublished = "\url{https://aws.amazon.com/blogs/aws/cloud-computing-server-utilization-the-environment/}"
+}
+
+
+@ARTICLE{dcasc,
+  title     = "{The datacenter as a computer: Designing warehouse-scale machines}",
+  author    = "Barroso, Luiz Andr{\'e} and H{\"o}lzle, Urs and Ranganathan,
+               Parthasarathy",
+  journal   = "Synthesis Lectures on Computer Architecture",
+  publisher = "Morgan \& Claypool Publishers",
+  volume    =  13,
+  number    =  3,
+  pages     = "i--189",
+  year      =  2018
+}
+
+
+@INPROCEEDINGS{high-resolution,
+  title       = "{High-resolution measurement of data center microbursts}",
+  booktitle   = "IMC",
+  author      = "Zhang, Qiao and Liu, Vincent and Zeng, Hongyi and
+                 Krishnamurthy, Arvind",
+  year        =  2017
+}
+
+@INPROCEEDINGS{wild,
+  title     = "{Network traffic characteristics of data centers in the wild}",
+  booktitle = "IMC",
+  author    = "Benson, Theophilus and Akella, Aditya and Maltz, David A",
+  year      =  2010,
+}
+
+@INPROCEEDINGS{tas,
+  title     = "{TAS: TCP acceleration as an OS service}",
+  booktitle = "EuroSys",
+  author    = "Kaufmann, Antoine and Stamler, Tim and Peter, Simon and Sharma,
+               Naveen Kr and Krishnamurthy, Arvind and Anderson, Thomas",
+  year      =  2019,
+}
+
+@INPROCEEDINGS{swift,
+  title      = "{Swift: delay is simple and effective for congestion control in the datacenter}",
+  booktitle  = "{SIGCOMM}",
+  author     = "Kumar, Gautam and Dukkipati, Nandita and Jang, Keon and Wassel,
+                Hassan M G and Wu, Xian and Montazeri, Behnam and Wang, Yaogong
+                and Springborn, Kevin and Alfeld, Christopher and Ryan, Michael
+                and Wetherall, David and Vahdat, Amin",
+  year       =  2020,
+}
+
+@INPROCEEDINGS{bs,
+  title      = "{Measuring burstiness in data center applications}",
+  author     = "Woodruff, J and Moore, A W and Zilberman, N",
+  booktitle  = "ACM BS",
+  year       =  2019,
+}
+
+@INPROCEEDINGS{observation,
+  title     = "{Micro-burst in data centers: observations, analysis, and
+               mitigations}",
+  booktitle = "{IEEE ICMP}",
+  author    = "Shan, D and Ren, F and Cheng, P and Shu, R and Guo, C",
+  year      =  2018
+}
+
+
+@INPROCEEDINGS{overheads,
+  title     = "{Understanding host network stack overheads}",
+  author    = "Cai, Qizhe and Chaudhary, Shubham and Vuppalapati, Midhul and
+               Hwang, Jaehyun and Agarwal, Rachit",
+  booktitle    = "SIGCOMM",
+  year      =  2021,
+}
+
+
+@INPROCEEDINGS{meets,
+  title     = "{When Cloud Storage Meets $\{$RDMA$\}$}",
+  booktitle = "{NSDI}",
+  author    = "Gao, Yixiao and Li, Qiang and Tang, Lingbo and Xi, Yongqing and
+               Zhang, Pengcheng and Peng, Wenwen and Li, Bo and Wu, Yaohui and
+               Liu, Shaozong and Yan, Lei and {Others}",
+  year      =  2021
+}
+
+
+@INPROCEEDINGS{programmable-transport,
+  title     = "{Enabling programmable transport protocols in high-speed NICs}",
+  booktitle = "{NSDI}",
+  author    = "Arashloo, Mina Tahmasbi and Lavrov, Alexey and Ghobadi, Manya
+               and Rexford, Jennifer and Walker, David and Wentzlaff, David",
+  year      =  2020,
+}
+
+
+
+@INPROCEEDINGS{syndb,
+  title     = "{Debugging transient faults in data centers using synchronized
+               network-wide packet histories}",
+  booktitle = "NSDI",
+  author    = "Kannan, Pravein Govindan and Budhdev, Nishant and Joshi, Raj and
+               Chan, Mun Choon",
+  year      =  2021
+}
+
+
+@INPROCEEDINGS{snappy,
+  title     = "{Catching the microburst culprits with snappy}",
+  booktitle = "{SelfDN}",
+  author    = "Chen, Xiaoqi and Feibish, Shir Landau and Koral, Yaron and
+               Rexford, Jennifer and Rottenstreich, Ori",
+  year      =  2018
+}
+
+
+@INPROCEEDINGS{vertigo,
+  title     = "{Burst-tolerant datacenter networks with Vertigo}",
+  booktitle = "{CoNEXT}",
+  author    = "Abdous, Sepehr and Sharafzadeh, Erfan and Ghorbani, Soudeh",
+  year      =  2021,
+}
+
+
+@INPROCEEDINGS{backdraft,
+  title     = "{Backdraft: a lossless virtual switch that prevents the slow
+               receiver problem}",
+  booktitle = "{NSDI}",
+  author    = "Sanaee, Alireza and Shahinfar, Farbod and Antichi, Gianni and
+               Stephens, Brent E",
+  year      =  2022
+}
+
+
+@INPROCEEDINGS{demikernel,
+  title     = "{The Demikernel Datapath OS Architecture for Microsecond-scale
+               Datacenter Systems}",
+  booktitle = "{SOSP}",
+  author    = "Zhang, Irene and Raybuck, Amanda and Patel, Pratyush and Olynyk,
+               Kirk and Nelson, Jacob and Leija, Omar S Navarro and Martinez,
+               Ashlie and Liu, Jing and Simpson, Anna Kornfeld and Jayakar,
+               Sujay and Penna, Pedro Henrique and Demoulin, Max and Choudhury,
+               Piali and Badam, Anirudh",
+  year      =  2021,
+}
+
+
+@INPROCEEDINGS{spin,
+  title     = "{Software Data Planes: You Can'T Always Spin to Win}",
+  booktitle = "{SoCC}",
+  author    = "Golestani, Hossein and Mirhosseini, Amirhossein and Wenisch,
+               Thomas F",
+  year      =  2019,
+}
+
+
+@INPROCEEDINGS{floodgate,
+  title     = "{Floodgate: taming incast in datacenter networks}",
+  booktitle = "{CoNEXT}",
+  author    = "Liu, Kexin and Tian, Chen and Wang, Qingyue and Zheng, Hao and
+               Yu, Peiwen and Sun, Wenhao and Xu, Yonghui and Meng, Ke and Han,
+               Lei and Fu, Jie and Dou, Wanchun and Chen, Guihai",
+  year      =  2021,
+}
+
+
+@INPROCEEDINGS{evolvable,
+  title     = "{Evolvable Network Telemetry at Facebook}",
+  booktitle = "NSDI",
+  author    = "Zhou, Yang and Zhang, Ying and Yu, Minlan and Wang, Guangyu and
+               Cao, Dexter and Sung, Eric and Wong, Starsky",
+  year      =  2022
+}
+
+
+@INPROCEEDINGS{acc,
+  title     = "{ACC: automatic ECN tuning for high-speed datacenter networks}",
+  booktitle = "{SIGCOMM}",
+  author    = "Yan, Siyu and Wang, Xiaoliang and Zheng, Xiaolong and Xia,
+               Yinben and Liu, Derui and Deng, Weishan",
+  year      =  2021,
+}
+
+
+@INPROCEEDINGS{radar,
+  title     = "{BurstRadar: Practical real-time microburst monitoring for datacenter networks}",
+  booktitle = "{APSys}",
+  author    = "Joshi, Raj and Qu, Ting and Chan, Mun Choon and Leong, Ben and
+               Loo, Boon Thau",
+  year      =  2018,
+}
+
+@MISC{tsq,
+  author        = "Corbet, Jonathan",
+  title        = "{TCP small queues}",
+  howpublished = "\url{https://lwn.net/Articles/507065/}",
+  year = 2012
+}
+
+
+
+
+@INPROCEEDINGS{nsight,
+  title     = "{How to diagnose nanosecond network latencies in rich end-host
+               stacks}",
+  booktitle = "NSDI",
+  author    = "Haecki, Roni and Mysore, Radhika Niranjan and Suresh, Lalith and
+               Zellweger, Gerd and Gan, Bo and Merrifield, Timothy and
+               Banerjee, Sujata and Roscoe, Timothy",
+  year      =  2022
+}
+
+@INPROCEEDINGS{ipbursts,
+  title   = "{Source-level IP packet bursts}",
+  author  = "Jiang, Hao and Dovrolis, Constantinos",
+  booktitle = "IMC",
+  year    =  2003
+}
+
+@INPROCEEDINGS{burstiness,
+  title     = "{On the burstiness of the TCP congestion-control mechanism in a
+               distributed computing system}",
+  booktitle = "ICDCS",
+  author    = "{Wu-Chun Feng} and Tinnakornsrisuphap, P and Philip, I",
+  year      =  2000
+}
+
+@INPROCEEDINGS{coalescing,
+  title     = "{Receive side coalescing for accelerating TCP/IP processing}",
+  booktitle = "HiPC",
+  author    = "Makineni, Srihari and Iyer, Ravi and Sarangam, Partha and
+               Newell, Donald and Zhao, Li and Illikkal, Ramesh and Moses,
+               Jaideep",
+  year      =  2006
+}
+
+
+@INPROCEEDINGS{carousel,
+  title     = "{Carousel: Scalable Traffic Shaping at End Hosts}",
+  booktitle = "{SIGCOMM}",
+  author    = "Saeed, Ahmed and Dukkipati, Nandita and Valancius, Vytautas and
+               The Lam, Vinh and Contavalli, Carlo and Vahdat, Amin",
+  year      =  2017,
+}
+
+
+@INPROCEEDINGS{titan,
+  title       = "{Titan: Fair packet scheduling for commodity multiqueue NICs}",
+  booktitle   = "ATC",
+  author      = "Stephens, Brent and Singhvi, Arjun and Akella, Aditya and
+                 Swift, Michael",
+  year        =  2017
+}
+
+
+@INPROCEEDINGS{trumpet,
+  title     = "{Trumpet: Timely and precise triggers in data centers}",
+  booktitle = "{SIGCOMM}",
+  author    = "Moshref, Masoud and Yu, Minlan and Govindan, Ramesh and Vahdat,
+               Amin",
+  year      =  2016,
+}
+
+
+
+
+@ARTICLE{bufferbloat,
+  title   = "{Bufferbloat: Dark buffers in the Internet}",
+  author  = "Gettys, Jim",
+  journal = "IEEE Internet Computing",
+  year    =  2011
+}
+
+
+@INPROCEEDINGS{homa,
+  title     = "{Homa: A Receiver-driven low-latency transport protocol using network priorities}",
+  booktitle = "{SIGCOMM}",
+  author    = "Montazeri, Behnam and Li, Yilong and Alizadeh, Mohammad and
+               Ousterhout, John",
+  year      =  2018,
+}
+
+@article{bbr,
+title	= {{BBR}: congestion-Based Congestion Control},
+author	= {Neal Cardwell and Yuchung Cheng and C. Stephen Gunn and Soheil Hassas Yeganeh and Van Jacobson},
+year	= {2016},
+journal	= {ACM Queue},
+}
+
+
+@INPROCEEDINGS{outcast,
+  title     = "{The TCP outcast problem: exposing unfairness in data center
+               networks}",
+  booktitle = "{NSDI}",
+  author    = "Prakash, Pawan and Dixit, Advait and Hu, Y Charlie and Kompella,
+               Ramana",
+  year      =  2012,
+}
+
+
+@INPROCEEDINGS{pacing,
+  title     = "{Understanding the performance of TCP pacing}",
+  booktitle = "INFOCOM",
+  author    = "Aggarwal, A and Savage, S and Anderson, T",
+  year      =  2000
+}
+
+
+@INPROCEEDINGS{shenango,
+  title     = "{Shenango: Achieving high CPU efficiency for latency-sensitive
+               datacenter workloads}",
+  booktitle = "{NSDI}",
+  author    = "Ousterhout, Amy and Fried, Joshua and Behrens, Jonathan and
+               Belay, Adam and Balakrishnan, Hari",
+  year      =  2019
+}
+
+
+@INPROCEEDINGS{breakfast,
+  title     = "{Breakfast of champions: towards zero-copy serialization with NIC
+               scatter-gather}",
+  booktitle = "{HotOS}",
+  author    = "Raghavan, Deepti and Levis, Philip and Zaharia, Matei and Zhang,
+               Irene",
+  year      =  2021,
+}
+
+
+@INPROCEEDINGS{pingmesh,
+  title     = "{Pingmesh: A large-scale system for data center network latency measurement and analysis}",
+  booktitle = "{SIGCOMM}",
+  author    = "Guo, Chuanxiong and Yuan, Lihua and Xiang, Dong and Dang,
+               Yingnong and Huang, Ray and Maltz, Dave and Liu, Zhaoyi and
+               Wang, Vin and Pang, Bin and Chen, Hua and Lin, Zhi-Wei and
+               Kurien, Varugis",
+  year      =  2015,
+}
+
+
+% The entry below contains non-ASCII chars that could not be converted
+% to a LaTeX equivalent.
+@INPROCEEDINGS{bfc,
+  title     = "{Backpressure flow control}",
+  author    = "{Goyal} and {Shah} and {Zhao} and {Nikolaidis} and {others}",
+  booktitle   = "NSDI",
+  year      =  2022
+}
+
+
+@INPROCEEDINGS{flowradar,
+  title     = "{FlowRadar: a better NetFlow for data centers}",
+  booktitle = "{NSDI}",
+  author    = "Li, Yuliang and Miao, Rui and Kim, Changhoon and Yu, Minlan",
+  year      =  2016,
+}
+
+
+@ARTICLE{notes,
+  title     = "{Notes on burst mitigation for transport protocols}",
+  author    = "Allman, Mark and Blanton, Ethan",
+  journal   = "SIGCOMM CCR",
+
+  year      =  2005,
+}
+
+@article{why,
+	author = {Jiang, Hao and Dovrolis, Constantinos},
+	title = {Why is the Internet Traffic Bursty in Short Time Scales?},
+	year = {2005},
+	journal = {SIGMETRICS Perform. Eval. Rev.},
+}
+
+
+@INPROCEEDINGS{less,
+  title     = "{Less is more: Trading a little bandwidth for ultra-low latency
+               in the data center}",
+  booktitle = "{NSDI}",
+  author    = "Alizadeh, Mohammad and Kabbani, Abdul and Edsall, Tom and
+               Prabhakar, Balaji and Vahdat, Amin and Yasuda, Masato",
+  year      =  2012,
+}
+
+
+@ARTICLE{codel,
+  title     = "{Controlling Queue Delay: A modern AQM is just one piece of the
+               solution to bufferbloat}",
+  author    = "Nichols, Kathleen and Jacobson, Van",
+  journal   = "ACM Queue",
+  year      =  2012,
+}
+
+
+@ARTICLE{memcached,
+  title     = "{Distributed Caching with Memcached}",
+  author    = "Fitzpatrick, Brad",
+  journal   = "Linux Journal",
+  year      =  2004,
+}
+
+
+@ARTICLE{selfsim,
+  title    = "{On the self-similar nature of Ethernet traffic (extended version)}",
+  author   = "Leland, Will E",
+  journal  = "ToN",
+  year     =  1994
+}
+
+
+
+@INPROCEEDINGS{filesize,
+  title     = "{On the relationship between file sizes, transport protocols, and
+               self-similar network traffic}",
+  booktitle = "{ICNP}",
+  author    = "Park, Kihong and Kim, Gitae and Crovella, M",
+  year      =  1996
+}
+
+
+@ARTICLE{hurst-comp,
+  title   = "{Estimating long-range dependence: finite sample properties and
+             confidence intervals}",
+  author  = "Weron, Rafa{\l}",
+  journal = "Physica A: Statistical Mechanics and its Applications",
+  year    =  2002
+}
+
+
+@ARTICLE{hurst,
+  title     = "{Long-Term storage capacity of reservoirs}",
+  author    = "{Hurst H. E.}",
+  journal   = "Trans. of the American Soc. of Civil Eng.",
+  year      =  1951
+}
+
+
+@INPROCEEDINGS{dpu,
+  title     = "{Nvidia data center processing unit (DPU) architecture}",
+  booktitle = "{IEEE HCS}",
+  author    = "Burstein, Idan",
+  year      =  2021
+}
+
+
+@INPROCEEDINGS{performance,
+  title       = "{Performance Analysis of Cloud Applications}",
+  booktitle   = "NSDI",
+  author      = "Ardelean, Dan and Diwan, Amer and Erdman, Chandra",
+  year        =  2018
+}
+
+
+@INPROCEEDINGS{fb-workload,
+  title     = "{Workload analysis of a large-scale key-value store}",
+  booktitle = "{SIGMETRICS}",
+  author    = "Atikoglu, Berk and Xu, Yuehai and Frachtenberg, Eitan and Jiang,
+               Song and Paleczny, Mike",
+  year      =  2012
+}
+
+
+@online{omnet,
+	title  = "OMNeT++ Simulator. \url{https://omnetpp.org/}",
+	year    = 2022
+}
+
+
+@ARTICLE{wan,
+  title   = "{Wide area traffic: the failure of Poisson modeling}",
+  author  = "Paxson, V and Floyd, S",
+  journal = "IEEE/ACM ToN",
+  year    =  1995
+}
+
+
+@ARTICLE{web,
+  title     = "{Self-similarity in World Wide Web traffic: evidence and possible
+               causes}",
+  author    = "Crovella, M E and Bestavros, A",
+  journal   = "ToN",
+  year      =  1997
+}
+
+
+@ARTICLE{vbr,
+  title     = "{Analysis, modeling and generation of self-similar VBR video
+               traffic}",
+  author    = "Garrett, Mark W and Willinger, Walter",
+  journal   = "SIGCOMM CCR",
+  year      =  1994,
+}
+
+
+@ARTICLE{understanding,
+  title     = "{Understanding data center traffic characteristics}",
+  author    = "Benson, Theophilus and Anand, Ashok and Akella, Aditya and
+               Zhang, Ming",
+  journal   = "CCR",
+  year      =  2010,
+}
+
+
+@INPROCEEDINGS{lockdown,
+  title     = "{The Lockdown Effect: Implications of the COVID-19 Pandemic on
+               Internet Traffic}",
+  booktitle = "{IMC}",
+  author    = "Feldmann, Anja and Gasser, Oliver and Lichtblau, Franziska and
+               Pujol, Enric and Poese, Ingmar and Dietzel, Christoph and
+               Wagner, Daniel and Wichtlhuber, Matthias and Tapiador, Juan and
+               Vallina-Rodriguez, Narseo and Hohlfeld, Oliver and Smaragdakis,
+               Georgios",
+  year      =  2020,
+}
+
+
+@article{self_similar_overview,
+  title={Self-Similar Network Traffic: An Overview},
+  author={Park, Kihong and Willinger, Walter},
+  journal={Self-Similar Network Traffic and Performance Evaluation},
+  year={2000},
+  publisher={Wiley Online Library}
+}
+
+@article{tuan2000congestion,
+  title={Congestion Control for Self-Similar Network Traffic},
+  author={Tuan, Tsunyi and Park, Kihong},
+  journal={Self-Similar Network Traffic and Performance Evaluation},
+  year={2000},
+}
+
+@article{mts_cc,
+  title={Multiple time scale congestion control for self-similar network traffic},
+  author={Tuan, Tsunyi and Park, Kihong},
+  journal={Performance Evaluation},
+  year={1999}
+}
+
+
+
+@inproceedings{feldmann1999dynamics,
+  title={Dynamics of IP traffic: A study of the role of variability and the impact of control},
+  author={Feldmann, Anja and Gilbert, Anna C and Huang, Polly and Willinger, Walter},
+  booktitle={SIGCOMM},
+  year={1999}
+}
+
+
+
+@inproceedings{adas1995resource,
+  title={On resource management and QoS guarantees for long range dependent traffic},
+  author={Adas, Abdelnaser and Mukherjee, Amarnath},
+  booktitle={INFOCOM},
+  year={1995}
+}
+
+@inproceedings{addie1995fractal,
+  title={Fractal traffic: measurements, modelling and performance evaluation},
+  author={Addie, Ronald G and Zukerman, Moshe and Neame, Tim},
+  booktitle={INFOCOM},
+  year={1995}
+}
+
+@inproceedings{duffield1995large,
+  title={Large deviations and overflow probabilities for the general single-server queue, with applications},
+  author={Duffield, Nicholas G and O'connell, Neil},
+  booktitle={Mathematical Proceedings of the Cambridge Philosophical Society},
+  year={1995}
+}
+
+@inproceedings{likhanov1995analysis,
+  title={Analysis of an ATM buffer with self-similar (" fractal") input traffic},
+  author={Likhanov, Nikolai and Tsybakov, Boris and Georganas, Nicolas D},
+  booktitle={INFOCOM},
+  year={1995}
+}
+
+@article{norros1994storage,
+  title={A storage model with self-similar input},
+  author={Norros, Ilkka},
+  journal={Queueing systems},
+  year={1994}
+}
+
+
+
+@ARTICLE{mandelbrot,
+  title     = "{Self-Affine Fractals and Fractal Dimension}",
+  author    = "Mandelbrot, Benoit B",
+  journal   = "Physica Scripta",
+  year      =  1985,
+}
+
+
+@ARTICLE{gemini,
+  title         = "{Gemini: Practical Reconfigurable Datacenter Networks with
+                   Topology and Traffic Engineering}",
+  author        = "Zhang, Mingyang and Zhang, Jianan and Wang, Rui and
+                   Govindan, Ramesh and Mogul, Jeffrey C and Vahdat, Amin",
+  year          =  2021,
+  journal = "arXiv cs.NI 2110.08374",
+}
+
+@online{ethereal,
+	title  = "Ethereal Network Protocol Analyzer. \url{http://www.ethereal.com/}"
+ }
+
  
-@online{knuthwebsite,
-    author    = "Donald Knuth",
-    title     = "Knuth: Computers and Typesetting",
-    url       = "http://www-cs-faculty.stanford.edu/~uno/abcde.html",
-    addendum = "(accessed: 01.09.2016)",
-    keywords  = "latex,knuth"
+@ARTICLE{cubic,
+  title     = "{CUBIC: a new TCP-friendly high-speed TCP variant}",
+  author    = "Ha, Sangtae and Rhee, Injong and Xu, Lisong",
+  journal   = "SOSR",
+  year      =  2008,
 }
 
-@inbook{knuth-fa,
-   author = "Donald E. Knuth",
-   title = "Fundamental Algorithms",
-   publisher = "Addison-Wesley",
-   year = "1973",
-   chapter = "1.2",
-   keywords  = "knuth,programming"
+@INPROCEEDINGS{homa-impl,
+  title     = "{A Linux kernel implementation of the Homa transport protocol}",
+  booktitle = "ATC",
+  author    = "Ousterhout, John",
+  year      =  2021
 }
 
-@book{knuth-acp,
-   author = "Donald E. Knuth",
-   publisher = "Addison-Wesley",
-   title = "The Art of Computer Programming",
-   series = "Four volumes",
-   year = "1968",
-   note = "Seven volumes planned",
-   keywords  = "knuth,programming"
+
+
+@inproceedings{govindan2016evolve, 
+    title={Evolve or die: high-availability design principles drawn from googles network infrastructure}, 
+    author={Govindan, Ramesh and Minei, Ina and Kallahalla, Mahesh and Koley, Bikash and Vahdat, Amin},
+    booktitle={SIGCOMM}, 
+    year={2016}
 }
 
-@article{ctan,
-    author  = "George D. Greenwade",
-    title   = "The {C}omprehensive {T}ex {A}rchive {N}etwork ({CTAN})",
-    year    = "1993",
-    journal = "TUGBoat",
-    volume  = "14",
-    number  = "3",
-    pages   = "342--351",
-    keywords  = "latex"
+@inproceedings{fbIMC22, title={A Microscopic View of Bursts, Buffer Contention, and Loss in Data Centers}, author={Ghabashneh, Ehab and Zhao, Yimeng and Lumezanu, Cristian and Spring, Neil and Sundaresan, Srikanth and Rao, Sanjay}, booktitle={IMC}, year={2022}}
+
+
+
+@INPROCEEDINGS{tales,
+  title     = "{Tales of the tail: Hardware, OS, and application-level sources
+               of tail latency}",
+  booktitle = "SoCC",
+  author    = "Li, Jialin and Sharma, Naveen Kr and Ports, Dan R K and Gribble,
+               Steven D",
+  year      =  2014,
+}
+
+
+@INPROCEEDINGS{superways,
+  title     = "{Superways: A datacenter topology for incast-heavy workloads}",
+  booktitle = "WWW",
+  author    = "Rezaei, Hamed and Vamanan, Balajee",
+  year      =  2021,
+}
+
+
+@INPROCEEDINGS{tlt,
+  title     = "{Towards timeout-less transport in commodity datacenter networks}",
+  booktitle = "EuroSys",
+  author    = "Lim, Hwijoon and Bai, Wei and Zhu, Yibo and Jung, Youngmok and
+               Han, Dongsu",
+  year      =  2021,
+}
+
+
+@INPROCEEDINGS{postman,
+  title     = "{PostMan: Rapidly mitigating bursty traffic by offloading packet
+               processing}",
+  booktitle = "SoCC",
+  author    = "Jin, Panpan and Guo, Jian and Xiao, Yikai and Shi, Rong and Niu,
+               Yipei and Liu, Fangming and Qian, Chen and Wang, Yang",
+  year      =  2019
+}
+
+@inproceedings{park1997effect,
+  title={Effect of traffic self-similarity on network performance},
+  author={Park, Kihong and Kim, Gitae and Crovella, Mark E},
+  booktitle={Performance and Control of Network Systems},
+  year={1997},
+}
+
+
+
+@INPROCEEDINGS{fatpaths,
+  title     = "{FatPaths: Routing in supercomputers and data centers when
+               shortest paths fall short}",
+  booktitle = "SC",
+  author    = "Besta, M and Schneider, M and Konieczny, M and Cynk, K and
+               Henriksson, E and Girolamo, S D and Singla, A and Hoefler, T",
+  year      =  2020
+}
+
+@INPROCEEDINGS{loom,
+  title     = "{Loom: Flexible and Efficient NIC Packet Scheduling}",
+  booktitle = "NSDI",
+  author    = "Stephens, Brent and Akella, Aditya and Swift, Michael",
+  year      =  2019
+}
+
+
+
+
+@INPROCEEDINGS{social,
+  title     = "{Inside the Social Network's (Datacenter) Network}",
+  booktitle = "{SIGCOMM}",
+  author    = "Roy, Arjun and Zeng, Hongyi and Bagga, Jasmeet and Porter,
+               George and Snoeren, Alex C",
+  year      =  2015
+}
+
+@INPROCEEDINGS{jupiter,
+  title     = "{Jupiter Rising: A Decade of Clos Topologies and Centralized
+               Control in Google's Datacenter Network}",
+  author    = "Singh, Arjun and Ong, Joon and Agarwal, Amit and Anderson, Glen
+               and Armistead, Ashby and Bannon, Roy and Boving, Seb and Desai,
+               Gaurav and Felderman, Bob and Germano, Paulie and Kanagala,
+               Anand and Provost, Jeff and Simmons, Jason and Tanda, Eiichi and
+               Wanderer, Jim and H{\"o}lzle, Urs and Stuart, Stephen and
+               Vahdat, Amin",
+  booktitle   = "SIGCOMM",
+  year      =  2015,
+}
+
+
+@INPROCEEDINGS{dibs,
+  title     = "{DIBS: just-in-time congestion mitigation for data centers}",
+  booktitle = "{Eurosys}",
+  author    = "Zarifis, Kyriakos and Miao, Rui and Calder, Matt and
+               Katz-Bassett, Ethan and Yu, Minlan and Padhye, Jitendra",
+  year      =  2014,
+}
+
+
+@INPROCEEDINGS{conga,
+  title     = "{CONGA: distributed congestion-aware load balancing for
+               datacenters}",
+  booktitle = "{SIGCOMM}",
+  author    = "Alizadeh, Mohammad and Edsall, Tom and Dharmapurikar, Sarang and
+               Vaidyanathan, Ramanan and Chu, Kevin and Fingerhut, Andy and
+               Lam, Vinh The and Matus, Francis and Pan, Rong and Yadav,
+               Navindra and Varghese, George",
+  year      =  2014,
+}
+
+
+@INPROCEEDINGS{drill,
+  title     = "{DRILL: Micro Load Balancing for Low-latency Data Center Networks}",
+  author    = "Ghorbani, Soudeh and Yang, Zibin and Godfrey, P Brighten and
+               Ganjali, Yashar and Firoozshahian, Amin",
+  booktitle    = "SIGCOMM",
+  year      =  2017,
+}
+
+
+@INPROCEEDINGS{letflow,
+  title     = "{Let it flow: Resilient asymmetric load balancing with flowlet
+               switching}",
+  booktitle = "NSDI",
+  author    = "Vanini, Erico and Pan, Rong and Alizadeh, Mohammad and Taheri,
+               Parvin and Edsall, Tom",
+  year      =  2017
+}
+
+
+@INPROCEEDINGS{presto,
+    title     = "{Presto: Edge-based Load Balancing for Fast Datacenter Networks}",
+  author    = "He, Keqiang and Rozner, Eric and Agarwal, Kanak and Felter, Wes and Carter, John and Akella, Aditya",
+  booktitle   = "SIGCOMM",
+  year      =  2015,
+}
+
+
+@INPROCEEDINGS{timely,
+  title     = "{TIMELY: RTT-based Congestion Control for the Datacenter}",
+  author    = "Mittal, Radhika and Lam, Vinh The and Dukkipati, Nandita and
+               Blem, Emily and Wassel, Hassan and Ghobadi, Monia and Vahdat,
+               Amin and Wang, Yaogong and Wetherall, David and Zats, David",
+    booktitle   = "SIGCOMM",
+  year      =  2015,
+}
+
+@ARTICLE{jitter,
+	author={S. {Floyd} and V. {Jacobson}},
+	journal={IEEE/ACM Transactions on Networking}, 
+	title={The synchronization of periodic routing messages}, 
+	year={1994},
+}
+
+
+@INPROCEEDINGS{NDP,
+  title     = "{Re-architecting datacenter networks and stacks for low latency
+               and high performance}",
+  booktitle = "{SIGCOMM}",
+  author    = "Handley, Mark and Raiciu, Costin and Agache, Alexandru and Voinescu, Andrei and Moore, Andrew W and Antichi, Gianni and W{\'o}jcik, Marcin",
+  year      =  2017
+}
+
+
+@INPROCEEDINGS{pHost,
+  title     = "{pHost: distributed near-optimal datacenter transport over
+               commodity network fabric}",
+  author    = "Gao, Peter X and Narayan, Akshay and Kumar, Gautam and Agarwal,
+               Rachit and Ratnasamy, Sylvia and Shenker, Scott",
+  booktitle    = "CoNEXT",
+  year      =  2015,
+}
+
+@inproceedings{bufferFacebook,
+author = {Beheshti, Neda and Lapukhov, Petr and Ganjali, Yashar},
+title = {Buffer Sizing Experiments at Facebook},
+year = {2019},
+booktitle = {ACM BS}
+}
+
+@INPROCEEDINGS{SECN,  
+    author={D. {Shan} and F. {Ren} and P. {Cheng} and R. {Shu} and C. {Guo}},  
+    booktitle={IEEE ICNP},   
+    title={Micro-Burst in Data Centers: Observations, Analysis, and Mitigations},   
+    year={2018},
+}
+
+
+@INPROCEEDINGS{dctcp,
+  title     = "{Data Center TCP (DCTCP)}",
+  booktitle = "{SIGCOMM}",
+  author    = "Alizadeh, Mohammad and Greenberg, Albert and Maltz, David A and
+               Padhye, Jitendra and Patel, Parveen and Prabhakar, Balaji and
+               Sengupta, Sudipta and Sridharan, Murari",
+  year      =  2010,
+}
+
+
+@INPROCEEDINGS{pfabric,
+  title     = "{pFabric: minimal near-optimal datacenter transport}",
+  author    = "Alizadeh, Mohammad and Yang, Shuang and Sharif, Milad and Katti,
+               Sachin and McKeown, Nick and Prabhakar, Balaji and Shenker,
+               Scott",
+  booktitle   = "SIGCOMM",
+  year      =  2013,
+}
+
+
+@ARTICLE{essential,
+  title     = "{Datacenter congestion control: identifying what is essential and
+               making it practical}",
+  author    = "Mushtaq, Aisha and Mittal, Radhika and McCauley, James and
+               Alizadeh, Mohammad and Ratnasamy, Sylvia and Shenker, Scott",
+  journal   = "SIGCOMM CCR",
+  year      =  2019,
+}
+
+
+@INPROCEEDINGS{netseer,
+  title     = "{Flow Event Telemetry on Programmable Data Plane}",
+  author    = "Zhou, Yu and Sun, Chen and Liu, Hongqiang Harry and Miao, Rui
+               and Bai, Shi and Li, Bo and Zheng, Zhilong and Zhu, Lingjun and
+               Shen, Zhen and Xi, Yongqing and Zhang, Pengcheng and Cai, Dennis
+               and Zhang, Ming and Xu, Mingwei",
+  booktitle    = "SIGCOMM",
+  year      =  2020,
+}
+
+
+@INPROCEEDINGS{pase,
+  title     = "{Friends, not foes: synthesizing existing transport strategies
+               for data center networks}",
+  author    = "Munir, Ali and Baig, Ghufran and Irteza, Syed M and Qazi, Ihsan
+               A and Liu, Alex X and Dogar, Fahad R",
+  booktitle    = "SIGCOMM",
+  year      =  2014,
+}
+
+
+@INPROCEEDINGS{plausible,
+  title     = "{Is advance knowledge of flow sizes a plausible assumption?}",
+  booktitle = "{NSDI}",
+  author    = "{\DH}uki{\'c}, Vojislav and Jyothi, Sangeetha Abdu and Karla{\v
+               s}, Bojan and Owaida, Muhsen and Zhang, Ce and Singla, Ankit",
+  year      =  2019
+}
+
+
+@INPROCEEDINGS{juggler,
+  title     = "{Juggler: a practical reordering resilient network stack for
+               datacenters}",
+  author    = "Geng, Yilong and Jeyakumar, Vimalkumar and Kabbani, Abdul and
+               Alizadeh, Mohammad",
+  booktitle    = "EuroSys",
+  year      =  2016,
+}
+
+
+
+@INPROCEEDINGS{observations,
+  title     = "{Micro-Burst in Data Centers: Observations, Analysis, and
+               Mitigations}",
+  booktitle = "{IEEE ICNP}",
+  author    = "Shan, D and Ren, F and Cheng, P and Shu, R and Guo, C",
+  year      =  2018
+}
+
+
+@INPROCEEDINGS{nature,
+  title     = "{The Nature of Data Center Traffic: Measurements \& Analysis}",
+  author    = "Kandula, Srikanth and Sengupta, Sudipta and Greenberg, Albert
+               and Patel, Parveen and Chaiken, Ronnie",
+  booktitle    = "IMC",
+  year      =  2009,
+}
+
+
+@INPROCEEDINGS{cuckoo,
+  title     = "{Cuckoo Filter: Practically Better Than Bloom}",
+  author    = "Fan, Bin and Andersen, Dave G and Kaminsky, Michael and
+               Mitzenmacher, Michael D",
+  booktitle    = "CoNEXT",
+  year      =  2014,
+}
+
+
+
+@MISC{newreno,
+  title        = "{The NewReno Modification to TCP's Fast Recovery Algorithm}",
+  author       = "Floyd, Sally and Gurtov, Andrei and Henderson, Tom",
+  month        =  apr,
+  year         =  2004,
+  howpublished = "RFC 3782",
+%   note         = "Accessed: 2021-4-7"
+}
+
+@inproceedings{burstradar,
+    author = {Joshi, Raj and Qu, Ting and Chan, Mun Choon and Leong, Ben and Loo, Boon Thau},
+    title = {BurstRadar: Practical Real-Time Microburst Monitoring for Datacenter Networks},
+    year = {2018},
+    booktitle = {APSys}
+}
+
+
+@INPROCEEDINGS{measuring,
+	title      = "{Measuring Burstiness in Data Center Applications}",
+	author     = "Woodruff, J and Moore, A W and Zilberman, N",
+	year       =  2019,
+	booktitle = "BS"
+}
+
+
+@inproceedings{gfs,
+	title={The Google file system},
+	author={Ghemawat, Sanjay and Gobioff, Howard and Leung, Shun-Tak},
+	booktitle={SOSP},
+	year={2003}
+}
+
+@inproceedings{panfs,
+  title={Scalable Performance of the Panasas Parallel File System.},
+  author={Welch, Brent and Unangst, Marc and Abbasi, Zainul and Gibson, Garth A and Mueller, Brian and Small, Jason and Zelenka, Jim and Zhou, Bin},
+  booktitle={FAST},
+  year={2008}
+}
+
+
+
+
+@INPROCEEDINGS{fastpass,
+  title     = "{Fastpass: A centralized zero-queue datacenter network}",
+  booktitle = "{SIGCOMM}",
+  author    = "Perry, Jonathan and Ousterhout, Amy and Balakrishnan, Hari and
+               Shah, Devavrat and Fugal, Hans",
+  year      =  2014
+}
+
+
+@INPROCEEDINGS{poweroftwosurvey,
+    author = {Michael Mitzenmacher and Andréa W. Richa and Ramesh Sitaraman},
+    title = {The Power of Two Random Choices: A Survey of Techniques and Results},
+    booktitle   = "Handbook of Randomized Computing",
+    year = {2000}
+}
+
+@manual{opentofino,
+	title  = "Open Tofino. \url{https://github.com/barefootnetworks/Open-Tofino}",
+	year    = 2020
+}
+
+
+
+@INPROCEEDINGS{hpcc,
+  title     = "{HPCC: high precision congestion control}",
+  author    = "Li, Yuliang and Miao, Rui and Liu, Hongqiang Harry and Zhuang,
+               Yan and Feng, Fei and Tang, Lingbo and Cao, Zheng and Zhang,
+               Ming and Kelly, Frank and Alizadeh, Mohammad and Yu, Minlan",
+  booktitle    = "SIGCOMM",
+  year      =  2019,
+}
+
+
+
+
+@INPROCEEDINGS{mantis,
+  title     = "{Mantis: Reactive Programmable Switches}",
+  author    = "Yu, Liangcheng and Sonchack, John and Liu, Vincent",
+  booktitle    = "SIGCOMM",
+  year      =  2020,
+}
+
+@inproceedings{ecnmultiqueue,
+  title={Enabling ECN in multi-service multi-queue data centers},
+  author={Bai, Wei and Chen, Li and Chen, Kai and Wu, Haitao},
+  booktitle={NSDI},
+  year={2016}
+}
+
+@inproceedings{conquest,
+    author = {Chen, Xiaoqi and Feibish, Shir Landau and Koral, Yaron and Rexford, Jennifer and Rottenstreich, Ori and Monetti, Steven A and Wang, Tzuu-Yi},
+    title = {Fine-Grained Queue Measurement in the Data Plane},
+    year = {2019},
+    booktitle = {CoNEXT}
+}
+
+@INPROCEEDINGS{pabo,
+  author={X. {Shi} and L. {Wang} and F. {Zhang} and K. {Zheng} and Z. {Liu}},
+  booktitle={IEEE ICC}, 
+  title={PABO: Congestion mitigation via packet bounce}, 
+  year={2017}
+}
+
+
+@INPROCEEDINGS{pieo,
+  title     = "{Fast, scalable, and programmable packet scheduler in hardware}",
+  author    = "Shrivastav, Vishal",
+  booktitle    = "SIGCOMM",
+  year      =  2019,
+}
+
+@inproceedings{cloudlab,
+	
+	title     = "The Design and Operation of {CloudLab}",
+	author    = "Dmitry Duplyakin and Robert Ricci and Aleksander Maricq and Gary Wong and Jonathon Duerig and Eric Eide and Leigh Stoller and Mike Hibler and David Johnson and Kirk Webb and Aditya Akella and Kuangching Wang and Glenn Ricart and Larry Landweber and Chip Elliott and Michael Zink and Emmanuel Cecchet and Snigdhaswin Kar and Prabodh Mishra",
+	booktitle = "ATC",
+	year      = 2019,
+}
+
+
+@online{inet,
+	title  = "INET Framework. \url{https://inet.omnetpp.org/}",
+	year    = 2020
+}
+
+
+@inproceedings{fattree,
+  title     = "{A Scalable, Commodity Data Center Network Architecture}",
+  author    = "Al-Fares, Mohammad and Loukissas, Alexander and Vahdat, Amin",
+  booktitle   = "SIGCOMM",
+  year      =  2008,
+}
+
+
+@inproceedings{expresspass,
+    author = {Cho, Inho and Jang, Keon and Han, Dongsu},
+    title = {Credit-Scheduled Delay-Bounded Congestion Control for Datacenters},
+    year = {2017},
+    booktitle = {SIGCOMM}
+}
+
+
+@INPROCEEDINGS{aeolus,
+  title     = "{Aeolus: A Building Block for Proactive Transport in Datacenters}",
+  author    = "Hu, Shuihai and Bai, Wei and Zeng, Gaoxiong and Wang, Zilong and
+               Qiao, Baochen and Chen, Kai and Tan, Kun and Wang, Yi",
+  booktitle    = "SIGCOMM",
+  year      =  2020,
+}
+
+
+@inproceedings{teixeira2004dynamics, title={Dynamics of hot-potato routing in IP networks}, author={Teixeira, Renata and Shaikh, Aman and Griffin, Tim and Rexford, Jennifer}, booktitle={{International Conference on Measurement and Modeling of Computer Systems}}, year={2004}}
+
+@inproceedings{fallin2012minbd, title={{MinBD: Minimally-buffered deflection routing for energy-efficient interconnect}}, author={Fallin, Chris and Nazario, Greg and Yu, Xiangyao and Chang, Kevin and Ausavarungnirun, Rachata and Mutlu, Onur}, booktitle={{IEEE/ACM International Symposium on Networks-on-Chip}}, year={2012}}
+
+@inproceedings{lu2006evaluation, title={Evaluation of on-chip networks using deflection routing}, author={Lu, Zhonghai and Zhong, Mingchen and Jantsch, Axel}, booktitle={{ACM Great Lakes symposium on VLSI}}, year={2006}}
+
+@article{defl1, title={Effective deflection control method in optical packet switching networks with shared buffers}, author={Kawanabe, Kazuki and Takahashi, Tatsuro}, journal={Electronics and Communications in Japan (Part I: Communications)}, volume={90}, number={9}, year={2007},}
+
+@inproceedings{defl2, title={Performance analysis of deflection routing in optical burst-switched networks}, author={Hsu, Ching-Fang and Liu, Te-Lung and Huang, Nen-Fu}, booktitle={{Annual Joint Conference of the IEEE Computer and Communications Societies}}, volume={1}, year={2002}}
+
+@inproceedings{defl3, title={Performance analysis of optical burst switched node with deflection routing}, author={Chen, Yang and Wu, Hongyi and Xu, Dahai and Qiao, Chunming}, booktitle={{IEEE International Conference on Communications}}, volume={2}, year={2003}}
+
+@article{defl4, title={Intelligent deflection routing in buffer-less networks}, author={Haeri, Soroush and Trajkovi{\'c}, Ljiljana}, journal={{IEEE Transactions on Cybernetics}}, volume={45}, number={2}, year={2014}}@inproceedings{defl5, title={On the design of optical deflection-routing networks}, author={Borgonovo, Flaminio and Fratta, Luigi and Bannister, Joseph A}, booktitle={{INFOCOM}}, year={1994}}
+
+@inproceedings{defl6, title={Analysis of one-buffer deflection routing in ultra-fast optical mesh networks}, author={Bononi, Alberto and Forghieri, Fabrizio and Prucnal, Paul R}, booktitle={INFOCOM}, year={1993}}
+
+@inproceedings{defl7, title={Unslotted deflection routing in all-optical networks}, author={Borgonovo, Flaminio and Fratta, Luigi and Bannister, Joseph}, booktitle={GLOBECOM}, year={1993}}
+
+
+
+@INPROCEEDINGS{007,
+  title     = "{007: Democratically finding the cause of packet drops}",
+  booktitle = "{NSDI}",
+  author    = "Arzani, Behnaz and Ciraci, Selim and Chamon, Luiz and Zhu, Yibo
+               and Liu, Hongqiang Harry and Padhye, Jitu and Loo, Boon Thau and
+               Outhred, Geoff",
+  year      =  2018
+}
+
+
+@INPROCEEDINGS{blame,
+  title     = "{Taking the Blame Game out of Data Centers Operations with
+               NetPoirot}",
+  author    = "Arzani, Behnaz and Ciraci, Selim and Loo, Boon Thau and
+               Schuster, Assaf and Outhred, Geoff",
+  booktitle    = "SIGCOMM",
+  year      =  2016,
+}
+
+
+@INPROCEEDINGS{marple,
+  title     = "{Language-directed hardware design for network performance
+               monitoring}",
+  author    = "Narayana, S and Sivaraman, A and Nathan, V and Goyal, P and
+               {others}",
+  booktitle   = "SIGCOMM",
+  year      =  2017
+}
+
+
+@inproceedings{clark1992supporting, 
+    title={Supporting real-time applications in an integrated services packet network: Architecture and mechanism}, 
+    author={Clark, David D and Shenker, Scott and Zhang, Lixia}, 
+    booktitle={SIGCOMM CCR}, 
+    year={1992}
+}
+
+@article{demers1989analysis, 
+    title={Analysis and simulation of a fair queueing algorithm}, 
+    author={Demers, Alan and Keshav, Srinivasan and Shenker, Scott}, 
+    journal={{SIGCOMM CCR}}, 
+    year={1989}
+}
+
+@article{parekh1993generalized, 
+    title={A generalized processor sharing approach to flow control in integrated services networks: the single-node case}, 
+    author={Parekh, Abhay K and Gallager, Robert G}, 
+    journal={{IEEE/ACM transactions on networking}}, 
+    year={1993}
+}
+
+@article{blake1998architecture, 
+    title={An architecture for differentiated services}, 
+    author={Blake, Steven and Black, David and Carlson, Mark and Davies, Elwyn and Wang, Zheng and Weiss, Walter}, 
+    year={1998}, 
+    journal={{RFC 2475}}
+}
+
+@inproceedings{shreedhar1995efficient, 
+    title={Efficient fair queueing using deficit round robin}, 
+    author={Shreedhar, Madhavapeddi and Varghese, George}, 
+    journal={{SIGCOMM CCR}}, 
+    year={1995}
+}
+
+@inproceedings{pdq,
+  title={Finishing flows quickly with preemptive scheduling},
+  author={Hong, Chi-Yao and Caesar, Matthew and Godfrey, P Brighten},
+  booktitle={{SIGCOMM}},
+  year={2012}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% NEW CITATIONS THAT MIGHT NEED CHANGE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@inproceedings{pint,
+    author = {Ben Basat, Ran and Ramanathan, Sivaramakrishnan and Li, Yuliang and Antichi, Gianni and Yu, Minian and Mitzenmacher, Michael},
+    title = {PINT: Probabilistic In-Band Network Telemetry},
+    year = {2020},
+    booktitle = {SIGCOMM}
+}
+
+@inproceedings{int,
+  title={In-band network telemetry via programmable dataplanes},
+  author={Kim, Changhoon and Sivaraman, Anirudh and Katta, Naga and Bas, Antonin and Dixit, Advait and Wobker, Lawrence J},
+  booktitle={SIGCOMM},
+  year={2015}
+}
+
+@inproceedings{intsight,
+author = {Marques, Jonatas and Levchenko, Kirill and Gaspary, Luciano},
+title = {IntSight: Diagnosing SLO Violations with in-Band Network Telemetry},
+year = {2020},
+booktitle = {CoNEXT},
+}
+
+@ARTICLE{gps,
+  title     = "{A generalized processor sharing approach to flow control in
+               integrated services networks: the single-node case}",
+  author    = "Parekh, A K and Gallager, R G",
+  journal   = "ToN",
+  year      =  1993,
+}
+
+
+@INPROCEEDINGS{wfq,
+  title     = "{Analysis and simulation of a fair queueing algorithm}",
+  booktitle = "{SIGCOMM}",
+  author    = "Demers, A and Keshav, S and Shenker, S",
+  year      =  1989,
+}
+
+
+@INPROCEEDINGS{sparrow,
+  title     = "{Sparrow: distributed, low latency scheduling}",
+  booktitle = "{SOSP}",
+  author    = "Ousterhout, Kay and Wendell, Patrick and Zaharia, Matei and
+               Stoica, Ion",
+  year      =  2013,
+}
+
+
+
+@INPROCEEDINGS{mqfq,
+  title     = "{Multi-Queue Fair Queuing}",
+  booktitle = "{ATC}",
+  author    = "Hedayati, Mohammad and Shen, Kai and Scott, Michael L and Marty,
+               Mike",
+  year      =  2019
+}
+
+@INPROCEEDINGS{scfq,
+  title     = "{A self-clocked fair queueing scheme for broadband applications}",
+  booktitle = "{INFOCOM }",
+  author    = "Golestani, S J",
+  year      =  1994
+}
+
+@ARTICLE{stfq,
+  title     = "{Start-time fair queueing: a scheduling algorithm for integrated
+               services packet switching networks}",
+  author    = "Goyal, P and Vin, H M and Cheng, Haichen",
+  journal   = "ToN",
+  year      =  1997,
+}
+
+@ARTICLE{frr,
+  title   = "{Fair Round-Robin: A Low Complexity Packet Scheduler with
+             Proportional and Worst-Case Fairness}",
+  author  = "Yuan, Xin and Duan, Zhenhai",
+  journal = "IEEE ToC",
+  year    =  2009
+}
+
+@INPROCEEDINGS{drr,
+  title     = "{Efficient fair queueing using deficit round robin}",
+  author    = "Shreedhar, M and Varghese, George",
+  booktitle   = "SIGCOMM",
+  year      =  1995,
+}
+
+
+
+@INPROCEEDINGS{sfq,
+  title     = "{Stochastic fairness queueing}",
+  booktitle = "INFOCOM",
+  author    = "McKenney, P E",
+  year      =  1990
+}
+
+
+
+@INPROCEEDINGS{valinor,
+  title     = "{Understanding the impact of host networking elements on traffic
+               bursts}",
+  booktitle = "NSDI",
+  author    = "Sharafzadeh, Erfan and Abdous, Sepehr and Ghorbani, Soudeh",
+  year      =  2023
+}
+
+
+
+@INPROCEEDINGS{aliquem,
+  title     = "{Aliquem: a novel DRR implementation to achieve better latency
+               and fairness at O(1) complexity}",
+  booktitle = "{IEEE QoS}",
+  author    = "Lenzini, L and Mingozzi, E and Stea, G",
+  year      =  2002
+}
+
+
+@INPROCEEDINGS{sharing,
+  title        = "{Sharing the data center network}",
+  author       = "Shieh, Alan and Kandula, Srikanth and Greenberg, Albert and
+                  Kim, Changhoon and Saha, Bikas",
+  booktitle = "NSDI",
+  year      = 2011
+}
+
+
+@INPROCEEDINGS{mrfq,
+  title     = "{Multi-resource fair queueing for packet processing}",
+  booktitle = "SIGCOMM",
+  author    = "Ghodsi, Ali and Sekar, Vyas and Zaharia, Matei and Stoica, Ion",
+  year      =  2012,
+}
+
+
+@INPROCEEDINGS{fairnic,
+  title   = "{SmartNIC Performance Isolation with FairNIC}",
+  author  = "Grant, Stewart and Yelam, Anil and Bland, Maxwell and Snoeren,
+             Alex C",
+  booktitle = "SIGCOMM",
+  year    =  2020
+}
+
+
+
+@INPROCEEDINGS{syrup,
+  title     = "{Syrup: User-Defined Scheduling Across the Stack}",
+  booktitle = "SOSP",
+  author    = "Kaffes, Kostis and Humphries, Jack Tigar and Mazi{\`e}res, David
+               and Kozyrakis, Christos",
+  year      =  2021,
+}
+
+@INPROCEEDINGS{ghost,
+  title     = "{ghOSt: Fast \& Flexible User-Space Delegation of Linux
+               Scheduling}",
+  booktitle = "SOSP",
+  author    = "Humphries, Jack Tigar and Natu, Neel and Chaugule, Ashwin and
+               Weisse, Ofir and Rhoden, Barret and Don, Josh and Rizzo, Luigi
+               and Rombakh, Oleg and Turner, Paul and Kozyrakis, Christos",
+  year      =  2021,
+}
+
+
+@INPROCEEDINGS{snap,
+  title     = "{Snap: A Microkernel Approach to Host Networking}",
+  booktitle = "SOSP",
+  author    = "Marty, Michael and de Kruijf, Marc and Adriaens, Jacob and
+               Alfeld, Christopher and Bauer, Sean and Contavalli, Carlo and
+               Dalton, Michael and Dukkipati, Nandita and Evans, William C and
+               Gribble, Steve and Kidd, Nicholas and Kononov, Roman and Kumar,
+               Gautam and Mauer, Carl and Musick, Emily and Olson, Lena and
+               Rubow, Erik and Ryan, Michael and Springborn, Kevin and Turner,
+               Paul and Valancius, Valas and Wang, Xi and Vahdat, Amin",
+  year      =  2019,
+}
+
+
+@INPROCEEDINGS{heracles,
+  title     = "{Heracles: improving resource efficiency at scale}",
+  booktitle = "ISCA",
+  author    = "Lo, David and Cheng, Liqun and Govindaraju, Rama and
+               Ranganathan, Parthasarathy and Kozyrakis, Christos",
+  year      =  2015,
+}
+
+
+@INPROCEEDINGS{arachne,
+  title     = "{Arachne: core-aware thread management}",
+  booktitle = "OSDI",
+  author    = "Qin, Henry and Li, Qian and Speiser, Jacqueline and Kraft, Peter and Ousterhout, John",
+  year      =  2018
+}
+
+
+@INPROCEEDINGS{caladan,
+  title     = "{Caladan: Mitigating Interference at Microsecond Timescales}",
+  booktitle = "OSDI",
+  author    = "Fried, Joshua and Ruan, Zhenyuan and Ousterhout, Amy and Belay,
+               Adam",
+  year      =  2020
+}
+
+
+
+@ARTICLE{nagle,
+  title   = "{On Packet Switches with Infinite Storage}",
+  author  = "Nagle, J",
+  journal = "IEEE ToC",
+  year    =  1987
+}
+
+
+@INPROCEEDINGS{strr,
+  title     = "{Stratified round Robin: a low complexity packet scheduler with
+               bandwidth fairness and bounded delay}",
+  booktitle = "SIGCOMM",
+  author    = "Ramabhadran, Sriram and Pasquale, Joseph",
+  year      =  2003,
+}
+
+
+@INPROCEEDINGS{afq,
+  title     = "{Approximating fair queueing on reconfigurable switches}",
+  booktitle = "NSDI",
+  author    = "Sharma, Naveen Kr and Liu, Ming and Atreya, Kishore and
+               Krishnamurthy, Arvind",
+  year      =  2018
+}
+
+
+@MISC{cisco,
+  title        = "{Understand and Configure MDRR/WRED on 12000 Series Routers}",
+  booktitle    = "{Cisco}",
+  howpublished = "\url{https://www.cisco.com/c/en/us/support/docs/routers/12000-series-routers/18841-mdrr-wred-18841.html}",
+   year    =   2023
+}
+
+@MISC{juniper,
+  title        = "{Configuring MDRR on Enhanced Queuing DPCs}",
+  booktitle    = "{Juniper}",
+  howpublished = "\url{https://www.juniper.net/documentation/us/en/software/junos/cos/topics/concept/cos-configuring-mdrr-on-enhanced-queuing-dpcs.html}",
+   year    =   2024
+}
+
+@MISC{tc,
+  title        = "{Linux Advanced Routing \& Traffic Control HOWTO}",
+  booktitle    = "{Linux Documentation Project}",
+  howpublished = "\url{https://tldp.org/HOWTO/Adv-Routing-HOWTO}",
+   year    =   2024
+}
+
+@MISC{bbr3,
+    title =  "BBR",
+    howpublished = "\url{https://github.com/google/bbr}",
+    year = 2024
+}
+
+
+@INPROCEEDINGS{calendar,
+  title     = "{Programmable calendar queues for high-speed packet scheduling}",
+  booktitle = "NSDI",
+  author    = "Sharma, Naveen Kr and Zhao, Chenxingyu and Liu, Ming and Kannan,
+               Pravein G and Kim, Changhoon and Krishnamurthy, Arvind and
+               Sivaraman, Anirudh",
+  year      =  2020
+}
+
+
+@MISC{intel710,
+  title        = "{Intel\textregistered{} Ethernet Controller X710/ XXV710/XL710
+                  Datasheet}",
+  howpublished = "\url{https://cdrdv2-public.intel.com/332464/332464_710_Series_Datasheet_v_4_1.pdf}",
+  note         = "Accessed: 2023-7-11",
+  language     = "en",
+    year      =  2023
+}
+
+
+@MISC{intel810,
+  title        = "{Intel\textregistered{} Ethernet Controller E810 Datasheet.}",
+  howpublished = "\url{https://cdrdv2.intel.com/v1/dl/getContent/613875?wapkw=columbiaville\%20datasheet}",
+  note         = "Accessed: 2023-7-11",
+  language     = "en",
+    year      =  2023
+}
+
+
+@INPROCEEDINGS{pifo,
+  title     = "{Programmable Packet Scheduling at Line Rate}",
+  booktitle = "SIGCOMM",
+  author    = "Sivaraman, Anirudh and Subramanian, Suvinay and Alizadeh,
+               Mohammad and Chole, Sharad and Chuang, Shang-Tse and Agrawal,
+               Anurag and Balakrishnan, Hari and Edsall, Tom and Katti, Sachin
+               and McKeown, Nick",
+  year      =  2016,
+}
+
+
+@INPROCEEDINGS{demi,
+  title     = "{The Demikernel Datapath OS Architecture for Microsecond-scale
+               Datacenter Systems}",
+  booktitle = "SOSP",
+  author    = "Zhang, Irene and Raybuck, Amanda and Patel, Pratyush and Olynyk,
+               Kirk and Nelson, Jacob and Leija, Omar S Navarro and Martinez,
+               Ashlie and Liu, Jing and Simpson, Anna Kornfeld and Jayakar,
+               Sujay and Penna, Pedro Henrique and Demoulin, Max and Choudhury,
+               Piali and Badam, Anirudh",
+  year      =  2021,
+}
+
+
+@INPROCEEDINGS{netchannel,
+  title     = "{Towards $\mu$s tail latency and terabit ethernet: disaggregating
+               the host network stack}",
+  booktitle = "{SIGCOMM}",
+  author    = "Cai, Qizhe and Vuppalapati, Midhul and Hwang, Jaehyun and
+               Kozyrakis, Christos and Agarwal, Rachit",
+  year      =  2022,
+}
+
+
+@INPROCEEDINGS{corundum,
+  title     = "{Corundum: An Open-Source 100-Gbps NIC}",
+  booktitle = "FCCM",
+  author    = "Forencich, A and Snoeren, A C and Porter, G and Papen, G",
+  year      =  2020
+}
+
+
+@INPROCEEDINGS{justitia,
+  title     = "{Justitia: Software Multi-Tenancy in Hardware
+               Kernel-Bypass Networks}",
+  booktitle = "NSDI",
+  author    = "Zhang, Yiwen and Tan, Yue and Stephens, Brent and Chowdhury,
+               Mosharaf",
+  year      =  2022
+}
+
+
+@MISC{linux-perf,
+  title        = "{perf: Linux profiling with performance counters}",
+  howpublished = "\url{https://perf.wiki.kernel.org/index.php/Main_Page}",
+  year      =  2023
+
+}
+
+@MISC{linux-rbtree,
+  title        = "{Red-black Trees (rbtree) in Linux}",
+  howpublished = "\url{https://www.kernel.org/doc/Documentation/rbtree.txt}",
+  year      =  2023
+
+}
+
+
+@MISC{linux-cfs,
+  title        = "{CFS Scheduler}",
+  howpublished = "\url{https://docs.kernel.org/scheduler/sched-design-CFS.html}",
+  year      =  2023
+}
+
+
+@MISC{linux-gso-gro,
+  title        = "{Segmentation Offloads in Linux kernel}",
+  howpublished = "\url{https://www.kernel.org/doc/html/latest/networking/segmentation-offloads.html}",
+  year      =  2023
+}
+
+@INPROCEEDINGS{big-tcp,
+  title     = "{BIG TCP}",
+  booktitle = "Netdev 0x15",
+  author    = "Dumazet, Eric and Li, Coco",
+  year      =  2021
+}
+
+@MISC{iperf2,
+  title        = "{Iperf 2 download}",
+  howpublished = "\url{https://sourceforge.net/projects/iperf2/}",
+  year      =  2023
+}
+
+@MISC{sch-fq,
+  title        = "{sch\_fq: Fair Queue packet scheduler}",
+  author       = "Dumazet, Eric",
+  howpublished = "\url{https://lwn.net/Articles/564825/}",
+  note         = "Accessed: 2023-7-20",
+  year      =  2013
+}
+
+@MISC{sch-dualpi2,
+  title        = "{sch\_dualpi2: Dual Queue with Proportional Integral controller Improved with a Square}",
+  author       = "De Schepper, Koen and Albisser, Olga and Steen, Henrik and Tilmans, Olivier",
+  howpublished = "\url{https://github.com/L4STeam}",
+  note         = "Accessed: 2023-7-20",
+  year      =  2020
+}
+
+@inproceedings{pi2,
+    author = {Schepper, Koen and Albisser, Olga and Tsang, Ing and Briscoe, Bob},
+    year = {2016},
+    title = {PI2 : A Linearized AQM for both Classic and Scalable TCP},
+booktitle = "CoNEXT"
+}
+
+
+@MISC{aws,
+  title        = "{AWS Direct Connect: Set network MTU for private virtual
+                  interfaces}",
+  year         =  2023,
+  howpublished = "\url{https://docs.aws.amazon.com/directconnect/latest/UserGuide/set-jumbo-frames-vif.html}",
+  note         = "Accessed: 2023-07-20"
+}
+
+
+@INPROCEEDINGS{globus,
+  title     = "{Campus bridging made easy via Globus services}",
+  booktitle = "XSEDE",
+  author    = "Foster, Ian and Kettimuthu, Rajkumar and Martin, Stuart and
+               Tuecke, Steve and Milroy, Daniel and Palen, Brock and Hauser,
+               Thomas and Braden, Jazcek",
+  year      =  2012,
+}
+
+@article{jain-fairness,
+  author = {Jain, Raj and Chiu, Dah Ming and WR, Hawe},
+  year = {1998},
+  title = {A Quantitative Measure Of Fairness And Discrimination For Resource Allocation In Shared Computer Systems},
+  journal = {CoRR}
+}
+
+
+@INPROCEEDINGS{aifo,
+  title     = "{Programmable packet scheduling with a single queue}",
+  booktitle = "SIGCOMM",
+  author    = "Yu, Zhuolong and Hu, Chuheng and Wu, Jingfeng and Sun, Xiao and
+               Braverman, Vladimir and Chowdhury, Mosharaf and Liu, Zhenhua and
+               Jin, Xin",
+  year      =  2021,
+}
+
+
+@INPROCEEDINGS{sppifo,
+  title     = "{SP-PIFO: approximating push-in first-out behaviors using
+               strict-priority queues}",
+  booktitle = "NSDI",
+  author    = "Alcoz, Albert Gran and Dietm{\"u}ller, Alexander and Vanbever,
+               Laurent",
+  year      =  2020
+}
+
+
+@INPROCEEDINGS{approximating,
+  title     = "{Approximating fair queueing on reconfigurable switches}",
+  booktitle = "NSDI",
+  author    = "Sharma, Naveen Kr and Liu, Ming and Atreya, Kishore and
+               Krishnamurthy, Arvind",
+  year      =  2018
+}
+
+@MISC{caida,
+  title        = "The CAIDA UCSD Anonymized Internet Traces",
+  year         =  2019,
+  howpublished = "\url{https://www.caida.org/catalog/datasets/passive_dataset}"
+}
+
+@INPROCEEDINGS{im,
+  title     = "Practical Traffic Analysis Attacks on Secure Messaging Applications",
+  booktitle = "NDSS",
+  author={Bahramali, Alireza and Soltani, Ramin and Houmansadr, Amir and Goeckel, Dennis and Towsley, Don},
+  year      =  2020,
+}
+
+
+@INPROCEEDINGS{numfabric,
+  title     = "{NUMFabric: Fast and Flexible Bandwidth Allocation in Datacenters}",
+  booktitle = "SIGCOMM",
+  author    = "Nagaraj, Kanthi and Bharadia, Dinesh and Mao, Hongzi and
+               Chinchali, Sandeep and Alizadeh, Mohammad and Katti, Sachin",
+  year      =  2016,
+}
+
+
+@INPROCEEDINGS{scalability,
+  title        = "{On the scalability of fair queueing}",
+  author       = "Kortebi, A and Muscariello, L and Oueslati, S and Roberts, J",
+  booktitle = "Hotnets",
+  year         =  2004,
+}
+
+
+@INPROCEEDINGS{flow-aware,
+  title     = "{Minimizing the overhead in implementing flow-aware networking}",
+  booktitle = "INCS",
+  author    = "Kortebi, Abdesselem and Muscariello, Luca and Oueslati, Sara and
+               Roberts, James",
+  year      =  2005,
+}
+
+
+@INPROCEEDINGS{ibis,
+  title     = "{IBIS: Interposed Big-data I/O Scheduler}",
+  booktitle = "HPDC",
+  author    = "Xu, Yiqi and Zhao, Ming",
+  year      =  2016,
+}
+
+
+@ARTICLE{sprint,
+  title     = "{Packet-level traffic measurements from the Sprint IP backbone}",
+  author    = "Fraleigh, C and Moon, S and Lyles, B and Cotton, C and Khan, M
+               and Moll, D and Rockell, R and Seely, T and Diot, S C",
+  journal   = "IEEE Network",
+  year      =  2003
+}
+
+
+@ARTICLE{audio,
+  title     = "{A novel wide-band audio transmission scheme over the Internet
+               with a smooth quality degradation}",
+  author    = "Babich, Fulvio and Vitez, Marko",
+  journal   = "SIGCOMM CCR",
+  year      =  2000,
+}
+
+
+@INPROCEEDINGS{gearbox,
+  title     = "{Gearbox: A hierarchical packet scheduler for approximate
+               weighted fair queuing}",
+  booktitle = "NSDI",
+  author    = "Gao, Peixuan and Dalleggio, Anthony and Xu, Yang and Jonathan
+               Chao, H",
+  year      =  2022
+}
+
+
+@ARTICLE{sparse-flows,
+  author={Høiland-Jørgensen, Toke},
+  journal={IEEE Communications Letters}, 
+  title={Analyzing the Latency of Sparse Flows in the FQ-CoDel Queue Management Algorithm}, 
+  year={2018},
+}
+
+@MISC{jumboixp,
+  author       = {Levy, M.},
+  title        = "Jumbo Frame Deployment at Internet Exchange Points",
+  year         =  2011,
+  howpublished = "\url{https://www.ietf.org/archive/id/draft-mlevy-ixp-jumboframes-00.txt}"
+}
+
+
+@INPROCEEDINGS{universal,
+  title     = "{Universal Packet Scheduling}",
+  booktitle = "Hotnets",
+  author    = "Mittal, Radhika and Agarwal, Rachit and Ratnasamy, Sylvia and
+               Shenker, Scott",
+  year      =  2015,
+}
+
+
+@INPROCEEDINGS{hcsfq,
+  title     = "{Twenty Years After: Hierarchical Core-Stateless Fair
+               Queueing}",
+  booktitle = "NSDI",
+  author    = "Yu, Zhuolong and Wu, Jingfeng and Braverman, Vladimir and
+               Stoica, Ion and Jin, Xin",
+  year      =  2021
+}
+
+
+@INPROCEEDINGS{formal,
+  title     = "{Formal Methods for Network Performance Analysis}",
+  author    = "Arashloo, Mina Tahmasbi and Beckett, Ryan and Agarwal, Rachit",
+  booktitle   = "NSDI",
+  year      =  2023
+}
+
+
+@INPROCEEDINGS{rtc,
+  title     = "{A comparative study of RTC applications}",
+  booktitle = "IS",
+  author    = "Nistic{\`o}, Antonio and Markudova, Dena and Trevisan, Martino
+               and Meo, Michela and Carofiglio, Giovanna",
+  year      =  2020
+}
+
+
+@INPROCEEDINGS{pandemic,
+  title     = "{The Lockdown Effect: Implications of the COVID-19 Pandemic on
+               Internet Traffic}",
+  booktitle = "IMC",
+  author    = "Feldmann, Anja and Gasser, Oliver and Lichtblau, Franziska and
+               Pujol, Enric and Poese, Ingmar and Dietzel, Christoph and
+               Wagner, Daniel and Wichtlhuber, Matthias and Tapiador, Juan and
+               Vallina-Rodriguez, Narseo and Hohlfeld, Oliver and Smaragdakis,
+               Georgios",
+  year      =  2020,
+}
+
+
+@INPROCEEDINGS{video,
+  title     = "{Measuring the performance and network utilization of popular
+               video conferencing applications}",
+  booktitle = "IMC",
+  author    = "MacMillan, Kyle and Mangla, Tarun and Saxon, James and Feamster,
+               Nick",
+  year      =  2021,
+}
+
+@inproceedings{webrtc-teams,
+  author = {Sharma, Taveesh and Mangla, Tarun and Gupta, Arpit and Jiang, Junchen and Feamster, Nick},
+  title = {Estimating WebRTC Video QoE Metrics Without Using Application Headers},
+  year = {2023},
+  booktitle = {IMC},
+}
+
+@INPROCEEDINGS{zoom,
+  title     = "{Packet-Level Analysis of Zoom Performance Anomalies}",
+  booktitle = "ICPE",
+  author    = "Karamollahi, Mehdi and Williamson, Carey and Arlitt, Martin",
+  year      =  2023
+}
+
+@inproceedings{zoom-quality,
+  author = {Choi, Albert and Karamollahi, Mehdi and Williamson, Carey and Arlitt, Martin},
+  title = {Zoom Session Quality: A Network-Level View},
+  year = {2022},
+  booktitle = {PAM},
+}
+
+
+@ARTICLE{confucius,
+  title         = "{Confucius: Achieving consistent low latency with practical
+                   queue management for real-time communications}",
+  author        = "Meng, Zili and Atre, Nirav and Xu, Mingwei and Sherry,
+                   Justine and Apostolaki, Maria",
+  year          =  2023,
+  archivePrefix = "arXiv",
+  primaryClass  = "cs.NI",
+  eprint        = "2310.18030"
+}
+
+
+@INPROCEEDINGS{cachelib,
+  title   = "{The CacheLib caching engine: Design and experiences at scale}",
+  author  = "Berg, Benjamin and Berger, Daniel S and McAllister, Sara and
+             Grosof, Isaac and Gunasekar, S and Lu, Jimmy and Uhlar, Michael
+             and Carrig, Jim and Beckmann, Nathan and Harchol-Balter, Mor and
+             Ganger, G",
+  booktitle = "OSDI",
+  year    =  2020
+}
+
+
+@INPROCEEDINGS{gaming,
+  title     = "{Measurement of cloud-based game streaming system response to
+               competing TCP cubic or TCP BBR flows}",
+  booktitle = "IMC",
+  author    = "Xu, Xiaokun and Claypool, Mark",
+  year      =  2022,
+}
+
+
+@INPROCEEDINGS{enterprise,
+  title   = "{A first look at modern enterprise traffic}",
+  author  = "Pang, Ruoming and Allman, M and Bennett, Mike and Lee, Jason R and
+             Paxson, V and Tierney, B",
+  journal = "IMC",
+  year    =  2005
+}
+
+
+@INPROCEEDINGS{milisampler,
+  title     = "{A microscopic view of bursts, buffer contention, and loss in
+               data centers}",
+  booktitle = "IMC",
+  author    = "Ghabashneh, Ehab and Zhao, Yimeng and Lumezanu, Cristian and
+               Spring, Neil and Sundaresan, Srikanth and Rao, Sanjay",
+  year      =  2022,
+}
+
+
+@INPROCEEDINGS{baidu,
+  title     = "{Examination of WAN traffic characteristics in a large-scale data
+               center network}",
+  booktitle = "IMC",
+  author    = "Wang, Zhaohua and Li, Zhenyu and Liu, Guangming and Chen, Yunfei
+               and Wu, Qinghua and Cheng, Gang",
+  year      =  2021,
+}
+
+
+@ARTICLE{autosens,
+  title     = "{AutoSens: inferring latency sensitivity of user activity through
+               natural experiments}",
+  author    = "Thakkar, Parth and Saxena, Rohan and Padmanabhan, Venkata N",
+  booktitle = "IMC",
+  year      =  2021,
+}
+
+
+@INPROCEEDINGS{canyousee,
+  title     = "{Can you see me now? a measurement study of Zoom, Webex, and Meet}",
+  booktitle = "IMC",
+  author    = "Chang, Hyunseok and Varvello, Matteo and Hao, Fang and
+               Mukherjee, Sarit",
+  year      =  2021,
+}
+
+
+
+@INPROCEEDINGS{demistify,
+  title     = "{Demystifying Commercial Video Conferencing Applications}",
+  booktitle = "MM",
+  author    = "Lee, Insoo and Lee, Jinsung and Lee, Kyunghan and Grunwald, Dirk
+               and Ha, Sangtae",
+  year      =  2021,
+}
+
+
+@INPROCEEDINGS{rfec,
+  title     = "{R-FEC: RL-based FEC Adjustment for Better QoE in WebRTC}",
+  booktitle = "MM",
+  author    = "Lee, Insoo and Kim, Seyeon and Sathyanarayana, Sandesh and Bin,
+               Kyungmin and Chong, Song and Lee, Kyunghan and Grunwald, Dirk
+               and Ha, Sangtae",
+  year      =  2022,
+}
+
+
+@MISC{fqcodel,
+  title        = "{The Flow Queue CoDel Packet Scheduler and Active
+                  Queue Management Algorithm}",
+  booktitle    = "{RFC 8290}",
+  author       = "H{\o}iland-J{\o}rgensen, Toke and McKenney, Paul and Gettys,
+                  Jim and Dumazet, Eric",
+  howpublished = "\url{https://datatracker.ietf.org/doc/html/rfc8290}",
+  year         = "2018",
+}
+
+@MISC{ecn,
+  title        = "{The Addition of Explicit Congestion Notification (ECN) to IP}",
+  booktitle    = "{RFC 3168}",
+  author       = "Ramakrishnan, K. and Floyd, S. and Black, D.",
+  howpublished = "\url{https://datatracker.ietf.org/doc/html/rfc3168}",
+  year         = "2001",
+}
+
+@MISC{fast-recovery,
+  title        = "{The NewReno Modification to TCP's Fast Recovery Algorithm}",
+  booktitle    = "{RFC 3782}",
+  author       = "Floyd, S. and Henderson, T. and Gurtov, A.",
+  howpublished = "\url{https://datatracker.ietf.org/doc/html/rfc3782}",
+  year         = "2001",
+}
+
+@INPROCEEDINGS{slowdown,
+  title     = "{Slowdown as a Metric for Congestion Control Fairness}",
+  booktitle = "HotNets",
+  author    = "Zapletal, Adrian and Kuipers, Fernando",
+  year      =  2023,
+}
+
+
+@INPROCEEDINGS{codedbulk,
+  title     = "{CodedBulk: Inter-Datacenter Bulk Transfers using Network Coding}",
+  author    = "Tseng, Shih-Hao and Agarwal, Saksham and Agarwal, R and Ballani,
+               Hitesh and Tang, A",
+  booktitle   = "NSDI",
+  year      =  2021
+}
+
+
+@INPROCEEDINGS{deadline,
+  title     = "{Guaranteeing deadlines for inter-datacenter transfers}",
+  booktitle = "EuroSys",
+  author    = "Zhang, Hong and Chen, Kai and Bai, Wei and Han, Dongsu and Tian,
+               Chen and Wang, Hao and Guan, Haibing and Zhang, Ming",
+  year      =  2015,
+
+}
+
+
+@INPROCEEDINGS{bulk,
+  title     = "{Optimizing Bulk Transfers with Software-Defined Optical WAN}",
+  booktitle = "SIGCOMM",
+  author    = "Jin, Xin and Li, Yiran and Wei, Da and Li, Siming and Gao, Jie
+               and Xu, Lei and Li, Guangzhi and Xu, Wei and Rexford, Jennifer",
+  year      =  2016,
+}
+
+
+@ARTICLE{sfo,
+  title     = "{Analyzing the Latency of Sparse Flows in the FQ-CoDel Queue
+               Management Algorithm}",
+  author    = "H{\o}iland-J{\o}rgensen, Toke",
+  journal   = "IEEE Communications Letters",
+  year      =  2018
+}
+
+
+@ARTICLE{sparse,
+  title     = "{Evaluating the number of active flows in a scheduler realizing
+               fair statistical bandwidth sharing}",
+  author    = "Kortebi, A and Muscariello, L and Oueslati, S and Roberts, J",
+  journal   = "SIGMETRICS",
+  year      =  2005,
+}
+
+
+@INPROCEEDINGS{karuna,
+  title     = "{Scheduling Mix-flows in Commodity Datacenters with Karuna}",
+  booktitle = "SIGCOMM",
+  author    = "Chen, Li and Chen, Kai and Bai, Wei and Alizadeh, Mohammad",
+  year      =  2016,
+}
+
+
+@INPROCEEDINGS{battle,
+  title     = "{The Battle of the Schedulers: FreeBSD ULE vs. Linux
+               CFS}",
+  booktitle = "ATC",
+  author    = "Bouron, Justinien and Chevalley, S{\'e}bastien and Lepers,
+               Baptiste and Zwaenepoel, Willy and Gouicem, Redha and Lawall,
+               Julia and Muller, Gilles and Sopena, Julien",
+  year      =  2018
+}
+
+
+
+@INPROCEEDINGS{harmony,
+  title       = "{Harmony: A Congestion-free Datacenter Architecture}",
+  booktitle   = "NSDI",
+  author      = "Agarwal, Saksham and Cai, Qizhe and Agarwal, Rachit and
+                 Shmoys, David and Vahdat, Amin",
+  year        =  2024
+}
+
+
+@INPROCEEDINGS{bullet,
+  title     = "{Bullet trains: a study of NIC burst behavior at microsecond
+               timescales}",
+  booktitle = "CoNEXT",
+  author    = "Kapoor, Rishi and Snoeren, Alex C and Voelker, Geoffrey M and
+               Porter, George",
+  year      =  2013
+}
+
+
+@INPROCEEDINGS{movidiff,
+  title     = "{MoViDiff: Enabling service differentiation for mobile video apps}",
+  booktitle = "IM",
+  author    = "Sengupta, Satadal and Yadav, Vinay Kumar and Saraf, Yash and
+               Gupta, Harshit and Ganguly, Niloy and Chakraborty, Sandip and
+               De, Pradipta",
+  year      =  2017
+}
+
+
+@INPROCEEDINGS{passive,
+  title     = "{Enabling passive measurement of zoom performance in production
+               networks}",
+  booktitle = "IMC",
+  author    = "Michel, Oliver and Sengupta, Satadal and Kim, Hyojoon and
+               Netravali, Ravi and Rexford, Jennifer",
+  year      =  2022,
+}
+
+
+@INPROCEEDINGS{qoe,
+  title     = "{QoE Metrics for Interactivity in Video Conferencing
+               Applications: Definition and Evaluation Methodology}",
+  booktitle = "MMSys",
+  author    = "He, Jia and Ammar, Mostafa and Zegura, Ellen and Halepovic, Emir",
+  year      =  2024,
+}
+
+
+@INPROCEEDINGS{edge,
+  title     = "{Internet Performance from Facebook's Edge}",
+  booktitle = "IMC",
+  author    = "Schlinker, Brandon and Cunha, Italo and Chiu, Yi-Ching and
+               Sundaresan, Srikanth and Katz-Bassett, Ethan",
+  year      =  2019,
+}
+
+@article{buffer-sizing,
+    author = {Spang, Bruce and Arslan, Serhat and McKeown, Nick},
+    title = {Updating the Theory of Buffer Sizing},
+    year = {2022},
+    journal = {SIGMETRICS Perform. Eval. Rev.},
+}
+
+@MISC{sch-tbf,
+  title        = "{tc-tbf(8): Token Bucket Filter - Linux man page}",
+  author       = "Kuznetsov, Alexey N.",
+  howpublished = "\url{https://man7.org/linux/man-pages/man8/tc-tbf.8.html}",
+}
+
+@MISC{sch-netem,
+  title        = "{tc-netem(8): Network Emulator - Linux man page}",
+  author       = "Hemminger, Stephen",
+  howpublished = "\url{https://man7.org/linux/man-pages/man8/tc-netem.8.html}",
+}
+
+@MISC{cake-perf1,
+  title        = "{SQM/QoS can saturate the CPU/is this expected or can the code be improved?}",
+  howpublished = "\url{https://forum.openwrt.org/t/sqm-qos-can-saturate-the-cpu-is-this-expected-or-can-the-code-be-improved/}",
+  year = "2019"
+}
+
+@MISC{cake-perf2,
+  title        = "{SQM, cake and piece of cake qos - High CPU usage}",
+  howpublished = "\url{https://forum.openwrt.org/t/sqm-cake-and-piece-of-cake-qos-high-cpu-usage/17794}",
+  year = "2018"
+}
+
+@MISC{mawi,
+  title        = "{Traffic Data Repository at the WIDE Project}",
+  author       = "Cho, Kenjiro and Mitsuya, Koushirou and Kato, Akira",
+  booktitle = "Usenix FREENIX track",
+  year = "2000"
+}
+
+@MISC{ccdc,
+  title        = "{U.S. National CyberWatch Mid-Atlantic Collegiate Cyber Defense Competition (MACCDC) Traces}",
+  howpublished = "\url{https://www.netresec.com/?page=MACCDC}",
+  year = "2012"
+
+}
+
+@inproceedings{wf2q,
+  author = {Bennett, Jon C. R. and Zhang, Hui},
+  title = {WF2Q: worst-case fair weighted fair queueing},
+  year = {1996},
+  booktitle = {INFOCOM},
+}
+
+@ARTICLE{queuing-linux,
+  author = {Siemon, Dan},
+  title = {Queueing in the Linux Network Stack},
+  year = {2013},
+  journal   = "Linux Journal",
+  howpublished = "\url{https://www.linuxjournal.com/content/queueing-linux-network-stack}",
+}
+
+@inproceedings{bql,
+  author = {Hruby, Tomas},
+  title = {Byte Queue Limits revisited},
+  year = {2012},
+  booktitle = "Linux Plumbers Conference",
+  howpublished = "\url{https://blog.linuxplumbersconf.org/2012/wp-content/uploads/2012/08/bql_slide.pdf}",
+}
+
+@INPROCEEDINGS{incast,
+  title     = "{Understanding Incast Bursts in Modern Datacenters}",
+  author    = "Canel, Christopher and Madhavan, Balasubramanian and Sundaresan,
+               Srikanth and Spring, Neil and Kannan, Prashanth and Zhang, Ying
+               and Lin, Kevin and Seshan, Srinivasan",
+  booktitle = "IMC",
+  year      =  2024
+}
+
+
+@ARTICLE{practical-deflection,
+  title     = "{Practical packet deflection in datacenters}",
+  author    = "Abdous, Sepehr and Sharafzadeh, Erfan and Ghorbani, Soudeh",
+  journal   = "CoNEXT",
+  year      =  2023,
+}
+
+@INPROCEEDINGS{meta,
+  title     = "{RDMA over Ethernet for distributed training at meta scale}",
+  author    = "Gangidi, Adithya and Miao, Rui and Zheng, Shengbao and Bondu, Sai
+               Jayesh and Goes, Guilherme and Morsy, Hany and Puri, Rohit and
+               Riftadi, Mohammad and Shetty, Ashmitha Jeevaraj and Yang, Jingyi
+               and Zhang, Shuqiang and Fernandez, Mikel Jimenez and Gandham,
+               Shashidhar and Zeng, Hongyi",
+  booktitle = "SIGCOMM",
+  year      =  2024
+}
+
+@ARTICLE{hyperscale,
+  title     = "{Meta’s hyperscale infrastructure: Overview and insights}",
+  author    = "Tang, Chunqiang",
+  journal   = "Communications of the ACM",
+  year      =  2025,
+}
+
+@INPROCEEDINGS{llm,
+  title   = "{Characterization of large language model development in the
+             datacenter}",
+  author  = "Hu, Qi and Ye, Zhisheng and Wang, Zerui and Wang, Guoteng and
+             Zhang, Mengdie and Chen, Qiaoling and Sun, Peng and Lin, Dahua and
+             Wang, Xiaolin and Luo, Yingwei and Wen, Yonggang and Zhang, Tianwei",
+  booktitle = "NSDI",
+  year    =  2024
+}
+
+@MISC{comcast,
+  title        = "{Comcast Begins Rollout of Multi-Gig Broadband Services}",
+  author       = "Winslow, George",
+  booktitle    = "{TV Tech}",
+  year         =  2022,
+  howpublished = "\url{https://www.tvtechnology.com/news/comcast-begins-rollout-of-multi-gig-broadband-services}",
+  note         = "Accessed: 2025-2-13",
+}
+
+@INPROCEEDINGS{scrr,
+  title={Self-Clocked Round-Robin Packet Scheduling},
+  author={Sharafzadeh, Erfan and Matson, Raymond and Tourrilhes, Jean and Sharma, Puneet and Ghorbani, Soudeh},
+    booktitle   = "NSDI",
+    year        = "2025"
+}
+
+@inproceedings{microquanta,
+  title={Understanding Microquanta Process Scheduling for Cloud Applications},
+  author={Sharafzadeh, Erfan and Sanaee, Alireza and Huang, Peng and Antichi, Gianni and Ghorbani, Soudeh},
+  booktitle={IEEE UCC},
+  year={2022},
 }

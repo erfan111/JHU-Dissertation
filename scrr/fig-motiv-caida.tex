@@ -1,0 +1,67 @@
+% \begin{figure*}[t]
+%      \begin{minipage}[t]{0.21\textwidth}
+%    	 \centering
+%     \includegraphics[width=\linewidth]{figs/aggregate_ipg_burstsize_p99.pdf}
+%     \vspace{-6mm}
+%     \caption{\small{\textit{p99 of burst sizes with different IPG thresholds shows various levels of burstiness. \todo{a 4 by two figure grid}}}}
+% 	\label{fig:bursts-wild}
+%   \end{minipage}
+%        \hfill
+%          \begin{minipage}[t]{0.18\textwidth}
+%    	 \centering
+%     \includegraphics[width=\linewidth]{figs/pkt_num_lat_cn_2t4x16_mn_2tb2x4_mss_150_bql_9k_comp.pdf}
+%     \vspace{-6mm}
+%     \caption{\small{\textit{DRR offers poor application performance under different burst sizes. \todo{a simplified version of the figure (170s)}}}}
+% 	\label{fig:drr-burst-latency}
+%   \end{minipage}
+%   \hfill
+%       \begin{minipage}[t]{0.20\textwidth}
+%     \centering
+%     \includegraphics[width=1\linewidth]{figs/burst_cn_2t4x8_mn_2tb2x4_css_500_kp_lat_fq_drr.pdf}
+%     \vspace{-6mm}
+%     \caption{\small{\textit{Quantum in DRR trades-off CPU for better scheduling latency.}}}
+% 	\label{fig:quanta-cpu-lat}
+%   \end{minipage}
+%   \hfill
+%    \begin{minipage}[t]{0.19\textwidth}
+%    		\centering\includegraphics[width=1\linewidth]{figs/cpu_bandwidth.pdf}
+%          \vspace{-6mm}
+% 		\caption{\small{\textit{Increased CPU utilization quickly results in reduced bandwidth.}}}
+%             \label{fig:cpu-bw}
+%   \end{minipage}
+%    \begin{minipage}[t]{0.19\textwidth}
+%    		\centering\includegraphics[width=1\linewidth]{figs/workload_dists.pdf}
+%          \vspace{-6mm}
+% 		\caption{\small{\textit{Packet length distributions in the wild is diverse and skewed.}}}
+%             \label{fig:packets-wild}
+%   \end{minipage}
+%   \hfill
+%   \vspace{-0.5cm}
+% \end{figure*}
+
+\begin{figure*}[t]
+
+ \centering
+  \begin{minipage}[t]{0.32\textwidth}
+   	 \centering
+    \includegraphics[width=\linewidth]{figs/hursts.pdf}
+    \vspace{-7mm}
+    \caption{\small{Hurst estimates for public packet traces.}}
+	\label{fig:trace-hurst}
+  \end{minipage}
+  \begin{minipage}[t]{0.32\textwidth}
+   	 \centering
+    \includegraphics[width=\linewidth]{figs/pkt_num_lat_cn_2t4x16_mn_2tb2x4_mss_150_bql_9k_comp_fah.pdf}
+    \vspace{-7mm}
+    \caption{\small{DRR offers poor latency under different burst sizes.}}
+	\label{fig:drr-burst-latency}
+  \end{minipage}
+  % \hfill
+   \begin{minipage}[t]{0.32\textwidth}
+     		\centering\includegraphics[width=1\linewidth]{figs/aggregate_ipg_pktsize_cdf.pdf}
+         \vspace{-7mm}
+		\caption{\small{Skewed packet length distributions in the wild.}}
+            \label{fig:packets-wild}
+  \end{minipage}
+  \vspace{-0.2cm}
+\end{figure*}

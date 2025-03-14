@@ -1,0 +1,28 @@
+\begin{figure}[t]
+    \centering
+	\begin{subfigure}[t]{.48\linewidth}
+		\centering\includegraphics[width=0.99\linewidth]{figs/paral_cn_1t16x1024_gso_kp_skblen_comp_methods.pdf}
+    \caption{\small{\textit{TSO}}}
+	\label{fig:cpu-skblen-gso}
+
+	\end{subfigure}
+	\begin{subfigure}[t]{.48\linewidth}
+		\centering
+        \includegraphics[width=0.99\linewidth]{figs/paral_cn_1t4x1024_gro_kp_skblen_comp_methods.pdf}
+    \caption{\small{\textit{LRO}}}
+	\label{fig:cpu-skblen-gro}
+
+	\end{subfigure}
+ \vspace{-4mm}
+    \caption{\small{\textit{Impact of increasing Incast scales on CPU utilization in the presence of NIC offloading functions.}}}
+    \label{fig:cpu-skblen}
+    \vspace{-4mm}
+\end{figure}
+
+% \begin{figure}[t]
+%     \centering
+%     \includegraphics[width=0.95\linewidth]{figs/paral_cn_1t16x1024_gro_kp_skblen_comp_methods.pdf}
+%     \caption{\small{\textit{Impact of Generic Receive Offload.}}}
+% 	\label{fig:cpu-skblen-gro}
+% \end{figure}
+

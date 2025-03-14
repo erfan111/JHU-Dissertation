@@ -1,0 +1,61 @@
+\begin{algorithm}[thb!]
+\caption{SCRR No Packet Metadata Dequeue}
+\label{alg:scrr-npm-deq}
+\begin{algorithmic}
+\Require $NP \ge 0$
+\Comment{Packet count}
+\Function{Dequeue}{}
+\Comment{Packet Retrieval}
+\If{$NP == 0$}
+\Return NULL
+\EndIf
+\Repeat
+\State $rr\_queue \gets scrr\_get\_queue()$
+\State $pkt \gets rr\_queue.dequeue()$
+\Until{$pkt$ is not null}
+\State $NP \gets NP - 1$
+
+\Comment{Compute packet time}
+\If{$rr\_queue.clock < virtual\_previous$}
+\If{$full\_advance$ is false}
+\State $virtual\_pkt \gets virtual\_clock$
+\Else
+\State $virtual\_pkt \gets virtual\_previous + pkt.length$
+\EndIf
+\Else
+\State $virtual\_pkt \gets rr\_queue.clock$
+\EndIf
+\State $virtual\_next \gets virtual\_pkt + pkt.length$
+\State $rr\_queue.clock \gets virtual\_next$
+
+\Comment{Global Clock Advance}
+\If{$N == 0$}
+\State $virtual\_dequeue \gets pkt.virtual + pkt.length$
+\State $virtual\_previous \gets virtual\_clock$
+\State $virtual\_clock \gets virtual\_dequeue$
+\ElsIf{$pkt.virtual > virtual\_dequeue$}
+\State $virtual\_dequeue \gets pkt.virtual$
+\EndIf
+
+\Comment{Sub-queue Round Robin}
+\If{$virtual\_next > virtual\_clock$ or $cur\_queue$ is empty}
+\If{$rounds  \leq 0$}
+\State $virtual\_previous \gets virtual\_clock$
+\State $virtual\_clock \gets virtual\_dequeue$
+\State $rounds \gets all\_queues.length$
+\EndIf
+\State $rounds \gets rounds - 1$
+\State $rr\_queue \gets rr\_queue.next$
+\State $old\_queues.tail \gets cur\_queue$
+\EndIf
+
+\Return $pkt$
+%     \State $X \gets X \times X$
+%     \State $N \gets \frac{N}{2}$  \Comment{This is a comment}
+% \ElsIf{$N$ is odd}
+%     \State $y \gets y \times X$
+%     \State $N \gets N - 1$
+% \EndIf
+\EndFunction
+\end{algorithmic}
+\end{algorithm}

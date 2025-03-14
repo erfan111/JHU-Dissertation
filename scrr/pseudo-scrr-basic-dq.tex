@@ -1,0 +1,47 @@
+\begin{algorithm}[b!]
+\caption{SCRR-basic Dequeue}
+\label{alg:scrr-basic-deq}
+\begin{algorithmic}
+\Require $NP \ge 0$
+\Comment{Packet count}
+\Function{Dequeue}{}
+\Comment{Packet Retrieval}
+\If{$NP == 0$}
+\Return NULL
+\EndIf
+\State $cur\_queue \gets sub\_queues.head$
+\State $pkt \gets cur\_queue.dequeue()$
+\State $NP \gets NP - 1$
+
+\Comment{Global Clock Advance}
+\If{$NP == 0$}
+\State $virtual\_dequeue \gets pkt.virtual + pkt.length$
+\State $virtual\_clock \gets virtual\_dequeue$
+\ElsIf{$pkt.virtual > virtual\_dequeue$}
+\State $virtual\_dequeue \gets pkt.virtual$
+\EndIf
+
+\Comment{Sub-Queue Round Robin}
+\State $virtual\_next \gets pkt.virtual\_time + pkt.length$
+\If{$virtual\_next > virtual\_clock$ or $cur\_queue$ is empty}
+\If{$rounds \leq 0$}
+\State $virtual\_clock \gets virtual\_dequeue$
+\State $rounds \gets all\_queues.length$
+\EndIf
+\State $rounds \gets rounds - 1$
+\State $sub\_queues.head \gets cur\_queue.next$
+\If{$cur\_queue$ is not empty}
+\State $sub\_queues.tail \gets cur\_queue$
+\EndIf
+\EndIf
+
+\Return $pkt$
+%     \State $X \gets X \times X$
+%     \State $N \gets \frac{N}{2}$  \Comment{This is a comment}
+% \ElsIf{$N$ is odd}
+%     \State $y \gets y \times X$
+%     \State $N \gets N - 1$
+% \EndIf
+\EndFunction
+\end{algorithmic}
+\end{algorithm}

@@ -1,0 +1,42 @@
+\begin{figure}[t]
+	\centering
+ 	\begin{subfigure}[t]{.49\linewidth}
+		\centering
+                \includegraphics[width=1\linewidth]{figs/paral_cn_1t16x1024_spifo_retr_comp_methods.pdf}
+                % \vspace{-3mm}
+                \caption{\small{\textit{No. TCP re-transmissions}}}
+	        \label{fig:sppifo-retr}
+	\end{subfigure}
+	\begin{subfigure}[t]{.49\linewidth}
+		\centering
+                \includegraphics[width=1\linewidth]{figs/paral_cn_1t16x1024_spifo_skblen_comp_methods.pdf}
+                % \vspace{-3mm}
+                \caption{\small{\textit{Mean packet size with TSO}}}
+	        \label{fig:sppifo-skbl}
+	\end{subfigure}
+%         \vspace{-4mm}
+%         \caption{\small{\textit{SP-PIFO performance in presence of TSO.}}}
+%         \vspace{-3mm}
+% \end{figure}
+
+% \begin{figure}[t]
+% 	\centering
+ 	\begin{subfigure}[t]{.49\linewidth}
+		\centering
+                \includegraphics[width=1\linewidth]{figs/paral_cn_6t4x1024_mss_1500_bw_comp_methods.pdf}
+                % \vspace{-3mm}
+                \caption{\small{\textit{Aggregate throughput}}}
+	        \label{fig:sppifo-fair-bw}
+	\end{subfigure}
+	\begin{subfigure}[t]{.49\linewidth}
+		\centering
+                \includegraphics[width=1\linewidth]{figs/pkt_size_cn_2t4x8_mn_2tb2x4_per_15_mss_1468_lat_comp_sppifo_violins.pdf}
+                % \vspace{-3mm}
+                \caption{\small{\textit{Request latency}}}
+	        \label{fig:sppifo-req-lat}
+	\end{subfigure}
+        \vspace{-2mm}
+        \caption{\small{SP-PIFO  performance with heavy flows and TSO (top row), under heavy flows (bottom left), and under request-response workloads (bottom right).}}
+        \vspace{-3mm}
+\end{figure}
+

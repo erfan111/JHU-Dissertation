@@ -1,0 +1,23 @@
+\begin{algorithm}[t!]
+\caption{SCRR Enqueue (with enhancements)}
+\label{alg:scrr-neia-enq}
+\begin{algorithmic}
+\Function{Enqueue}{pkt}
+\State
+\Call{$cur\_queue \gets classify$}{pkt}
+\If{$cur\_queue$ is inactive}
+
+\Comment{No Empty}
+\If{$cur\_queue.clock <= virtual\_clock$ or $nq$ == 0}
+\Comment{Sparse Flow Optimization}
+\State $new\_queues.tail \gets cur\_queue$
+\State $rounds \gets rounds + 1$
+\Else
+\State $old\_queues.tail \gets cur\_queue$
+\EndIf
+\EndIf
+\State
+\Call{$cur\_queue.enqueue$}{pkt}
+\EndFunction
+\end{algorithmic}
+\end{algorithm}

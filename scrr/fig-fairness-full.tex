@@ -1,0 +1,63 @@
+\begin{figure}[th!]
+  \centering
+  \begin{subfigure}[t]{.30\linewidth}
+    \centering
+    \includegraphics[width=0.95\linewidth]{figs/paral_cn_6u4x1024_Cb_7G_jain_comp_methods.pdf}
+    \caption{UDP-rate: Jain}
+    \label{fig:fairness-jain-udp-rate-full}
+  \end{subfigure}
+  \begin{subfigure}[t]{.30\linewidth}
+    \centering
+    \includegraphics[width=0.95\linewidth]{figs/paral_cn_6u4x1024_mss_2500_jain_comp_methods.pdf}
+    \caption{UDP-MSS: Jain}
+    \label{fig:fairness-jain-udp-mss-full}
+  \end{subfigure}
+  \begin{subfigure}[t]{.30\linewidth}
+    \centering
+    \includegraphics[width=0.95\linewidth]{figs/paral_cn_6t4x1024_mss_2500_jain_comp_methods.pdf}
+    \caption{TCP-MSS: Jain}
+    \label{fig:fairness-jain-tcp-mss-full}
+  \end{subfigure}
+  \\
+  \begin{subfigure}[t]{.30\linewidth}
+    \centering
+    \includegraphics[width=0.95\linewidth]{figs/paral_cn_6u4x1024_Cb_7G_bw_comp_methods.pdf}
+    \caption{UDP-rate: Throughput}
+    \label{fig:fairness-tput-udp-rate-full}
+  \end{subfigure}
+  \begin{subfigure}[t]{.30\linewidth}
+    \centering
+    \includegraphics[width=0.95\linewidth]{figs/paral_cn_6u4x1024_mss_2500_bw_comp_methods.pdf}
+    \caption{UDP-MSS: Throughput}
+    \label{fig:fairness-tput-udp-mss-full}
+  \end{subfigure}
+  \begin{subfigure}[t]{.30\linewidth}
+    \centering
+    \includegraphics[width=0.95\linewidth]{figs/paral_cn_6t4x1024_mss_2500_bw_comp_methods.pdf}
+    \caption{TCP-MSS bias: Throughput}
+    \label{fig:fairness-tput-tcp-mss-full}
+  \end{subfigure}
+  \\
+  \begin{subfigure}[t]{.30\linewidth}
+    \centering
+    \includegraphics[width=0.95\linewidth]{figs/paral_cn_6u4x1024_Cb_7G_kp_comp_methods.pdf}
+    \caption{UDP-rate bias: CPU}
+    \label{fig:fairness-cpu-udp-rate-full}
+  \end{subfigure}
+  \begin{subfigure}[t]{.30\linewidth}
+    \centering
+    \includegraphics[width=0.95\linewidth]{figs/paral_cn_6u4x1024_mss_2500_kp_comp_methods.pdf}
+    \caption{UDP-MSS: CPU}
+    \label{fig:fairness-cpu-udp-mss-full}
+  \end{subfigure}
+  \begin{subfigure}[t]{.30\linewidth}
+    \centering
+    \includegraphics[width=0.95\linewidth]{figs/paral_cn_6t4x1024_mss_2500_kp_comp_methods.pdf}
+    \caption{TCP-MSS: CPU}
+    \label{fig:fairness-cpu-tcp-mss-full}
+  \end{subfigure}
+  \vspace{-3mm}
+  \caption{\small{Fairness of packet schedulers and their CPU overhead as the scale of Incast increases under two different biases: rate and MSS.}}
+  \label{fig:fairness-full}
+  \vspace{-0.2cm}
+\end{figure}

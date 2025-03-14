@@ -1,0 +1,19 @@
+\begin{algorithm}[b!]
+\caption{SCRR-basic Enqueue}
+\label{alg:scrr-basic-enq}
+\begin{algorithmic}
+\Function{Enqueue}{pkt}
+
+\Call{$cur\_queue \gets classify$}{pkt}
+\If{$cur\_queue$ is inactive}
+% \State $a = 1$
+\State $sub\_queues.tail \gets cur\_queue$
+\State $rounds \gets rounds + 1$
+\EndIf
+\State $pkt.virtual \gets max(virtual\_clock, cur\_queue.clock)$
+\State $cur\_queue.clock \gets pkt.virt\_tag + pkt.length$
+\State
+\Call{$cur\_queue.enqueue$}{pkt}
+\EndFunction
+\end{algorithmic}
+\end{algorithm}

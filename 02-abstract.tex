@@ -1,12 +1,18 @@
 \chap{Abstract} 
 
 
-%%%% your abstract goes here (word limit: 350)
-\Blindtext[3]
+Measurements of network traffic unveil periods of high link utilization that can exhaust switch buffers and lead to packet loss. Unfortunately, the diversity and ever-changing nature of networks, whether in a local setting like datacenters or public setting like Internet backbones, workloads and traffic patterns, and even host networking deployments pose a challenge in attributing the sources of bursty traffic in large-scale networks. Additionally, bursts are usually short-lived. Hence, existing proactive countermeasures--e.g., congestion control techniques-- struggle to detect and address them in time. In this study, we first revisit the definition of burstiness in the context of network traffic and introduce a high-resolution network traffic measurement framework, \textit{Valinor},  that employs probes at multiple vantage points to accurately identify and analyze the egress traffic from host machines in order to outline the sources of bursty traffic in host network stacks.
 
+Our findings hint that existing traffic shaping solutions, e.g., packet schedulers, are either ineffective in preventing bursts or do not take into account the bursty nature of the traffic. We demonstrate that Deficit Round Robin (DRR), the de facto fair packet scheduler in the Internet, can perform poorly because of its assumptions about packet size distributions and traffic bursts. Concretely, our study unveils that DRR performs best if (1) packet size distributions are known in advance; its optimal performance depends on tuning a parameter based on the maximum packet, and (2) all bursts are long and create backlogged queues. 
+We show that neither of these assumptions holds in today's Internet: packet size distributions are varied and dynamic, complicating the tuning of DRR. Plus, Internet traffic consists of many short, latency-sensitive flows, creating small bursts. These flows can experience high latency under DRR as it serves a potentially large number of flows in a round-robin fashion.
+To address these shortcomings, we introduce Self-Clocked Round-Robin Scheduling (SCRR), a parameter-less, low-latency, and scalable packet scheduler that boosts short latency-sensitive flows through careful adjustments to their virtual times without violating their fair share guarantees. 
+
+Finally, we investigate what happens when short-term bursts hit the switch buffers at the core of the network and packet loss becomes imminent. We introduce selective packet deflection, a reactive measure to prevent microbursts from causing expensive packet drops in the event of extreme buffer congestion. Packet deflection aims to use the available buffer in neighboring switches in managed environments to temporarily host packets that arrive at full buffers, significantly reducing the packet loss and improving application performance.
+
+Burstiness remains an important aspect of network traffic as technologies and workloads evolve. We hope that this study paves the way for periodically revisiting this phenomenon in order to design burst tolerant networks.
 
 %% list of keywords seperated by comma
-\keywords{Johns Hopkins, PhD, Masters, dissertation, thesis \LaTeX, template.}
+\keywords{Traffic Bursts, Datacenter Networks, Host Networking, Packet Scheduling, Packet Deflection}
 
 
 %%%%  committee members (add it right after the abstract w/o page break)
@@ -16,24 +22,31 @@
     %% alternatively you can use minipage environment to put side-by-side
     \section*{Primary reader and thesis advisor}
     
-    Dr. Chuck Darwin \\
-    Professor\\
-    Department of Biology\\
+    Dr. Soudeh Ghorbani \\
+    Assistant Professor\\
+    Department of Computer Science\\
     Johns Hopkins University, Baltimore MD 
 
 
     \section*{Secondary readers}
     
-    Dr. Stewart Hawking\\
-    Professor\\
-    Department of Biology \\
+    Dr. Yair Amir\\
+    Professor Emeritus\\
+    Department of Computer Science \\
     Johns Hopkins University, Baltimore, MD 
     
     \vspace{0.1in}
     
-    Dr. Jimmy Watson \\
+    Dr. John Ousterhout \\
     Professor\\
-    Department of Biology \\
+    Department of Computer Science \\
+    Stanford University, Stanford, CA 
+
+    \vspace{0.1in}
+    
+    Dr. Alex Marder \\
+    Assistant Professor\\
+    Department of Computer Science \\
     Johns Hopkins University, Baltimore, MD 
 
     %% you can add more readers if you have them on your committee 

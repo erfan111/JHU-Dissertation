@@ -1,0 +1,73 @@
+\begin{algorithm}[th!]
+\caption{SCRR Dequeue (with enhancements)}
+\label{alg:scrr-neia-deq}
+\begin{algorithmic}
+\Require $NP \ge 0$
+\Comment{Packet count}
+\Require $nq \ge 0$
+\Comment{Active sub-queue count}
+\Function{Dequeue}{}
+\Comment{Packet Retrieval}
+
+\If{$NP == 0$}
+\Return NULL
+\EndIf
+
+\Comment{Sparse Flow Optimization}
+\State $cur\_queue \gets new\_queues.head()$
+\If{$cur\_queue$ is null}
+\State $cur\_queue \gets old\_queues.head()$
+\EndIf
+\State $pkt \gets cur\_queue.dequeue()$
+\State $NP \gets NP - 1$
+
+\Comment{No Packet Metadata}
+\If{$cur\_queue.clock < virtual\_previous$}
+\If{$config.initial\_advance$}
+\Comment{Initial Advance}
+\State $virtual\_pkt \gets virtual\_previous + pkt.length$
+\Else
+\State $virtual\_pkt \gets virtual\_clock$
+\EndIf
+\Else
+\State $virtual\_pkt \gets cur\_queue.clock$
+\EndIf
+\State $virtual\_next \gets virtual\_pkt + pkt.length$
+\State $cur\_queue.clock \gets virtual\_next$
+
+\Comment{Global Clock Advance}
+
+\If{$NP == 0$}
+\State $virtual\_dequeue \gets pkt.virtual + pkt.length$
+\State $virtual\_previous \gets virtual\_clock$
+\State $virtual\_clock \gets virtual\_dequeue$
+\ElsIf{$pkt.virtual > virtual\_dequeue$}
+\State $virtual\_dequeue \gets pkt.virtual$
+\EndIf
+
+\Comment{Sub-queue Round Robin}
+\If{$virtual\_next > virtual\_clock$ or $cur\_queue$ is empty}
+\If{$rounds  \leq 0$}
+\State $virtual\_previous \gets virtual\_clock$
+\State $virtual\_clock \gets virtual\_dequeue$
+\State $rounds \gets nq$
+\EndIf
+\State $rounds \gets rounds - 1$
+\State $rr\_queue \gets rr\_queue.next$
+\If{$cur\_queue$ is not empty}
+\State $old\_queues.tail \gets cur\_queue$
+\EndIf
+\EndIf
+
+\Return $pkt$
+%     \State $X \gets X \times X$
+%     \State $N \gets \frac{N}{2}$  \Comment{This is a comment}
+% \ElsIf{$N$ is odd}
+%     \State $y \gets y \times X$
+%     \State $N \gets N - 1$
+% \EndIf
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+
+\vspace{3mm}

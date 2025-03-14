@@ -189,7 +189,7 @@
 
 %%%% OTHER PACKAGES AND OPTIONS
 \usepackage[pagewise,mathlines]{lineno}     % line numbers for drafting
-\usepackage[ruled]{algorithm2e}             % to manage algorithm environment
+% \usepackage[ruled]{algorithm2e}             % to manage algorithm environment
 \usepackage[titletoc]{appendix}             % to manage appendix chapters
 \usepackage{blindtext}                      % to generate random filler texts
 \usepackage{calc}                           % to set arithmetic arguments for spacing
@@ -226,8 +226,22 @@
 
 %% add more packages and/or change options of the packages as needed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% END LaTeX PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% =e my packages
+\usepackage{colortbl}
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+% \usepackage[labelfont=bf]{caption}
+\usepackage{paralist} 
 
+\usepackage{capt-of}% or \usepackage{caption}
+\usepackage{graphbox}
 
+\usepackage[noend]{algpseudocode}
+% \usepackage[table,xcdraw]{xcolor}
+\usepackage{tipa}
+\usepackage{xurl}
+% \usepackage[fleqn]{amsmath}
+\usepackage{placeins}
+\usepackage{algorithm}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% specifying direct package options related to document formatting
@@ -519,6 +533,32 @@
 
 %%% define custom settings for other packages here (algorithm/ listing, etc.)
 
+% // =e My macros
+\newcommand{\cmark}{{\color{green}\ding{51}}}
+\newcommand{\xmark}{{\color{red}\ding{55}}}
+\newcommand{\qmark}{{\color{orange}\textbf{?}}}
+
+\newcommand*\blackcircled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,fill,inner sep=1.5pt] (char) {\textcolor{white}{#1}};}}
+
+
+\newcommand{\rulesep}{\unskip\ \color{gray} \vrule\ }
+
+\newcommand{\eg}{{\em e.g., }}
+\newcommand{\ie}{{\em i.e., }}
+\newcommand{\etc}{{\em etc.}}
+\newcommand{\networkname}{Vertigo}
+\newcommand{\hostname}{Valinor}
+\newcommand{\name}{Vertigo}
+\newcommand{\burst}{microburst}
+\newcommand{\bursts}{\burst s}
+
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+
+\newtheorem{theorem}{Theorem}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% these are just some examples; add more settings, macros, environments, etc. 
@@ -611,7 +651,8 @@
 \include{07-chapter-2}
 \include{08-chapter-3}
 \include{09-chapter-4}
-\include{10-chapter-5}
+\include{10-chapter-5-related-work}
+\include{11-chapter-6}
 
 %% add more main text technical chapters if you have
 
@@ -635,8 +676,8 @@
 \fancyhead[L]{\appendixname\ \thechapter. \nouppercase \leftmark}
 
 
-\include{11-appendix-A}
-\include{12-appendix-B}
+\include{12-Appendix-A}
+\include{13-appendix-B}
 
 %% add more appendix chapters if you have 
 

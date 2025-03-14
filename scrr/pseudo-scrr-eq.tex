@@ -1,0 +1,18 @@
+\begin{algorithm}[b!]
+\caption{Self-clocked Round-robin Enqueue}
+\label{alg:scrr-enq}
+\begin{algorithmic}
+\Function{Enqueue}{pkt}
+
+\Call{$cur\_queue \gets classify$}{pkt}
+\If{$cur\_queue$ is inactive}
+% \State $a = 1$
+\State $new\_queues.tail \gets cur\_queue$
+\State $rounds \gets rounds + 1$
+\EndIf
+\State $pkt.virt\_tag \gets max(virtual\_clock, cur\_queue.clock)$
+\State $cur\_queue.clock \gets pkt.virt\_tag + pkt.length$
+\Call{$cur\_queue.enqueue$}{pkt}
+\EndFunction
+\end{algorithmic}
+\end{algorithm}

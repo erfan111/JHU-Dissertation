@@ -1,0 +1,44 @@
+\begin{figure*}[t]
+  \centering
+  \begin{subfigure}[t]{.30\linewidth}
+    \centering
+    \includegraphics[width=0.95\linewidth]{figs/paral_cn_1t16x1024_gso_pkthist_fq_drr_1500.pdf}
+    \caption{\small{\textit{TSO: Packet distribution}}}
+    \label{fig:gso-histo-full}
+  \end{subfigure}
+  \begin{subfigure}[t]{.30\linewidth}
+    \centering
+    \includegraphics[width=0.95\linewidth]{figs/paral_cn_1t16x1024_gso_skblen_comp_methods.pdf}
+    \caption{\small{\textit{TSO: Average packet length}}}
+    \label{fig:gso-avg-full}
+  \end{subfigure}
+  \begin{subfigure}[t]{.30\linewidth}
+    \centering
+    \includegraphics[width=0.95\linewidth]{figs/paral_cn_1t16x1024_gso_kp_comp_methods.pdf}
+    \caption{\small{\textit{TSO: CPU overhead}}}
+    \label{fig:gso-cpu-full}
+  \end{subfigure}
+  \\
+  \begin{subfigure}[t]{.30\linewidth}
+    \centering
+    \includegraphics[width=0.95\linewidth]{figs/paral_cn_1t4x1024_gro_pkthist_fq_drr_1500.pdf}
+    \caption{\small{\textit{Packet distribution}}}
+    \label{fig:gro-histo-full}
+  \end{subfigure}
+  \begin{subfigure}[t]{.30\linewidth}
+    \centering
+    \includegraphics[width=0.95\linewidth]{figs/paral_cn_1t4x1024_gro_skblen_comp_methods.pdf}
+    \caption{\small{\textit{Average packet length}}}
+    \label{fig:gro-avg-full}
+  \end{subfigure}
+  \begin{subfigure}[t]{.30\linewidth}
+    \centering
+    \includegraphics[width=0.95\linewidth]{figs/paral_cn_1t4x1024_gro_kp_comp_methods.pdf}
+    \caption{\small{\textit{CPU overhead}}}
+    \label{fig:gro-cpu-full}
+  \end{subfigure}
+  \vspace{-3mm}
+  \caption{\small{Performance of packet schedulers under TSO (top) and LRO (bottom) accelerations.}}
+  \label{fig:gsogro-full}
+  \vspace{-0.2cm}
+\end{figure*}

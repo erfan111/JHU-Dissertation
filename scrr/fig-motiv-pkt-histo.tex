@@ -1,0 +1,24 @@
+\begin{figure}[t]
+    \centering
+    \begin{subfigure}[t]{.40\linewidth}
+        \centering
+        \includegraphics[width=1\linewidth]{figs/paral_cn_1t16x1024_gso_pkthist_fq_drr_1500.pdf}
+        \vspace{-2mm}
+        \caption{\small{\textit{TSO on TX machine}}}
+	\label{fig:packets-edge}
+    \end{subfigure}
+    \begin{subfigure}[t]{.40\linewidth}
+      \centering
+      \includegraphics[width=1\linewidth]{figs/paral_cn_1t4x1024_gro_pkthist_fq_drr_1500.pdf}
+      \vspace{-2mm}
+      \caption{\small{\textit{LRO on RX machine}}}
+      \label{fig:packets-core}
+    \end{subfigure}
+    \vspace{-1mm}
+    \caption{\small{
+        SKB length distribution under NIC offloading functions. 
+    }}
+    \label{fig:packets}
+    \vspace{-2mm}
+\end{figure}
+
